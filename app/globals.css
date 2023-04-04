@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-glow: conic-gradient(from 180deg at 50% 50%,
+            #16abff33 0deg,
+            #0885ff33 55deg,
+            #54d6ff33 120deg,
+            #0071ff33 160deg,
+            transparent 360deg);
+    --secondary-glow: radial-gradient(rgba(255, 255, 255, 1),
+            rgba(255, 255, 255, 0));
+
+            --background-start: #1C1B1F;
+            --background-end: #1C1B1F;
+
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+        --secondary-glow: linear-gradient(to bottom right,
+                rgba(1, 65, 255, 0),
+                rgba(1, 65, 255, 0),
+                rgba(1, 65, 255, 0.3));
+
+        --background-start: #1C1B1F;
+        --background-end: #1C1B1F;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom,
+            transparent,
+            rgb(var(--background-end))) rgb(var(--background-start));
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+}
