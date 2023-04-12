@@ -1,9 +1,8 @@
-import { Inter, Abril_Fatface } from 'next/font/google'
+import { Inter, Abril_Fatface } from 'next/font/google';
 
-import './globals.css'
+import './globals.css';
 
 // Components
-import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 const inter = Inter({
@@ -15,27 +14,27 @@ const inter = Inter({
 const title = Abril_Fatface({
     variable: '--font-title',
     subsets: ['latin-ext'],
-    weight: "400",
+    weight: '400',
     display: 'swap'
 });
 
 export const metadata = {
     title: 'officia',
-    description: 'officia é uma ferramenta para ajudar os trabalhadores autônomos a gerenciar seus negócios próprios. ',
-}
+    description:
+        'officia é uma ferramenta para ajudar os trabalhadores autônomos a gerenciar seus negócios próprios. '
+};
 
 export default function RootLayout({
-    children,
+    children
 }: {
-    children: React.ReactNode
+    children: React.ReactNode;
 }) {
     return (
         <html lang="en" className={`${inter.variable} ${title.variable}`}>
             <body>
-                <Header />
                 {children}
                 <Footer />
             </body>
         </html>
-    )
+    );
 }

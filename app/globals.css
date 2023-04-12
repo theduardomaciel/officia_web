@@ -3,30 +3,32 @@
 @tailwind utilities;
 
 :root {
-    --primary-glow: conic-gradient(from 180deg at 50% 50%,
-            #16abff33 0deg,
-            #0885ff33 55deg,
-            #54d6ff33 120deg,
-            #0071ff33 160deg,
-            transparent 360deg);
-    --secondary-glow: radial-gradient(rgba(255, 255, 255, 1),
-            rgba(255, 255, 255, 0));
+    --wrapper: 2.5rem;
+    --header: 4.5rem;
+    --section: 5rem;
 
-            --background-start: #1C1B1F;
-            --background-end: #1C1B1F;
+    --neutral: #ffffff;
 
+    --text-100: #c4c4c4;
+    --text-200: #a1a1aa;
+
+    --gray-100: #666666;
+    --gray-200: #333333;
+    --gray-300: #292929;
+    --gray-400: #27272a;
+    --gray-500: #1e1f20;
+    --gray-600: #1c1b1f;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-        --secondary-glow: linear-gradient(to bottom right,
-                rgba(1, 65, 255, 0),
-                rgba(1, 65, 255, 0),
-                rgba(1, 65, 255, 0.3));
+        --teste: #000000;
+    }
+}
 
-        --background-start: #1C1B1F;
-        --background-end: #1C1B1F;
+@media (min-width: 1024px) {
+    :root {
+        --wrapper: 7.5rem;
     }
 }
 
@@ -39,14 +41,21 @@
 html,
 body {
     max-width: 100vw;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-inter);
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom,
-            transparent,
-            rgb(var(--background-end))) rgb(var(--background-start));
+    color: var(--text-100);
+    background: linear-gradient(
+        to bottom,
+        rgb(var(--gray-500)),
+        rgb(var(--gray-600))
+    );
 }
 
 a {
