@@ -3,68 +3,65 @@
 @tailwind utilities;
 
 :root {
-    --wrapper: 2.5rem;
-    --header: 4.5rem;
-    --section: 5rem;
+	--wrapper: 2.5rem;
+	--header: 4.5rem;
+	--section: 5rem;
+	--default-border: 1rem;
 
-    --neutral: #ffffff;
+	--neutral: #ffffff;
 
-    --text-100: #c4c4c4;
-    --text-200: #a1a1aa;
+	--text-100: #c4c4c4;
+	--text-200: #a1a1aa;
 
-    --gray-100: #666666;
-    --gray-200: #333333;
-    --gray-300: #292929;
-    --gray-400: #27272a;
-    --gray-500: #1e1f20;
-    --gray-600: #1c1b1f;
+	--gray-100: #666666;
+	--gray-200: #333333;
+	--gray-300: #292929;
+	--gray-400: #27272a;
+	--gray-500: #1e1f20;
+	--gray-600: #1c1b1f;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --teste: #000000;
-    }
+	:root {
+		--teste: #000000;
+	}
 }
 
 @media (min-width: 1024px) {
-    :root {
-        --wrapper: 7.5rem;
-    }
+	:root {
+		--wrapper: 7.5rem;
+	}
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 html,
 body {
-    max-width: 100vw;
-    /* overflow-x: hidden; */
+	max-width: 100vw;
+	/* overflow-x: hidden; */
 }
 
 html {
-    scroll-behavior: smooth;
-    font-family: var(--font-inter);
+	scroll-behavior: smooth;
+	font-family: var(--font-inter);
 }
 
 body {
-    color: var(--text-100);
-    background: linear-gradient(
-        to bottom,
-        rgb(var(--gray-500)),
-        rgb(var(--gray-600))
-    );
+	color: var(--text-100);
+	background: linear-gradient(to bottom, rgb(var(--gray-500)), rgb(var(--gray-600)));
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
-    html {
-        color-scheme: dark;
-    }
+	html {
+		color-scheme: dark;
+	}
 }
