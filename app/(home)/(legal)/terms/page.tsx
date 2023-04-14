@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 
 // Components
-import Header from 'components/Header';
-import { HeaderButton, HeaderTitle, PageHeader } from '../LayoutComponents';
+import Header, { HeaderTitle } from 'components/Header';
+import { HeaderButton, PageHeader } from '../LayoutComponents';
 
 const anchorClass = 'hover:text-text-200 transition-colors';
 

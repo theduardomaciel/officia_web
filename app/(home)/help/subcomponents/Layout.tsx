@@ -26,7 +26,10 @@ export function PageHeader({ title }: PageHeader) {
 				<h1 className="z-10 w-full text-center font-title text-4xl text-white lg:w-fit lg:text-5xl">
 					{title}
 				</h1>
-				<HelpSearchBar placeholder="Descreva o problema ou dúvida" />
+				<HelpSearchBar
+					placeholder="Descreva o problema ou dúvida"
+					className="min-w-[35vw]"
+				/>
 			</div>
 		</header>
 	);

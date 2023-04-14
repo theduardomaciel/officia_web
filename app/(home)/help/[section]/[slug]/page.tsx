@@ -39,7 +39,7 @@ export default async function HelpSection({ params }: PageProps) {
 			<Header>
 				<HelpSearchBar
 					placeholder="Pesquisar por ajuda"
-					className="border-none py-2 min-w-[25vw] hidden lg:flex"
+					className="border-none py-2 min-w-[22.5vw] max-w-[25vw] hidden lg:flex"
 				/>
 			</Header>
 			<main className="relative z-10 flex min-h-screen flex-col items-center justify-start">

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import HeaderInteractivity, {
 	HeaderInteractiveChildren,
 	HeaderInteractivityProps
@@ -31,6 +32,12 @@ export default function Header({ children, interactivityProps }: Props) {
 	);
 }
 
-export function HeaderTitle({ title }: { title: string }) {
-	return <p className="font-semibold text-sm lg:flex hidden">{title}</p>;
+export function HeaderTitle({ title, href }: { title: string; href?: string }) {
+	return href ? (
+		<Link href={href} className="font-semibold text-sm lg:flex hidden cursor-pointer">
+			{title}
+		</Link>
+	) : (
+		<p className="font-semibold text-sm lg:flex hidden">{title}</p>
+	);
 }

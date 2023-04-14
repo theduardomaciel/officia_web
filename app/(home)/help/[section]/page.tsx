@@ -1,8 +1,7 @@
 import Link from 'next/link';
 
 // Components
-import Header from 'components/Header';
-import { HeaderTitle } from 'app/(legal)/LayoutComponents';
+import Header, { HeaderTitle } from 'components/Header';
 import { GoToContactButton, PageHeader } from '../subcomponents/Layout';
 
 // Utils
@@ -18,7 +17,7 @@ export default async function HelpSection({ params }: { params: { section: strin
 	return (
 		<>
 			<Header>
-				<HeaderTitle title="Central de Ajuda" />
+				<HeaderTitle title="Central de Ajuda" href="/help" />
 				<GoToContactButton />
 			</Header>
 			<main className="relative z-10 flex min-h-screen flex-col items-center justify-start">
@@ -43,7 +42,9 @@ const ArticleLink = ({ meta, href }: { meta: ArticleMeta; href: string }) => {
 	const date = new Date();
 
 	const publishedAtString = `Publicado ${convertDate(new Date(meta.publishedAt))}`;
-	const lastUpdatedAtString = meta.updatedAt ? `Última atualização ${convertDate(new Date(meta.updatedAt))}` : null;
+	const lastUpdatedAtString = meta.updatedAt
+		? `Última atualização ${convertDate(new Date(meta.updatedAt))}`
+		: null;
 
 	return (
 		<Link
