@@ -35,11 +35,11 @@ export default function Footer() {
 										height={20}
 									/>
 								</a>
-								<a href="https://twitter.com/officia" target="_blank">
+								<a href="https://twitter.com/appofficia" target="_blank">
 									<Image
 										src={'/icons/twitter.svg'}
 										className="cursor-pointer"
-										alt="Github icon"
+										alt="Twitter icon"
 										width={20}
 										height={20}
 									/>
@@ -92,7 +92,7 @@ export default function Footer() {
 							]}
 						/>
 						<Section title="Baixe o App">
-							<PlayStoreEN className="cursor-pointer" />
+							<PlayStoreEN />
 						</Section>
 					</div>
 				</div>

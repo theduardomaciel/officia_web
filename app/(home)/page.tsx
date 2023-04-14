@@ -11,7 +11,7 @@ export default function Home() {
 		<>
 			<Header>
 				<ul className="flex-row items-center justify-end gap-x-16 lg:flex hidden">
-					<li
+					{/* <li
 						key={'services'}
 						className="font-semibold text-sm cursor-pointer hover:text-white transition-colors"
 					>
@@ -22,7 +22,7 @@ export default function Home() {
 						className="font-semibold text-sm cursor-pointer hover:text-white transition-colors"
 					>
 						Preços
-					</li>
+					</li> */}
 					<a href={`/#faq`} key={'faq'}>
 						<li className="font-semibold text-sm cursor-pointer hover:text-white transition-colors">
 							FAQ
@@ -35,8 +35,8 @@ export default function Home() {
 				</ul>
 				<MobileMenu />
 			</Header>
-			<main className="flex flex-col justify-start items-center min-h-screen pt-header z-10 relative pb-section">
-				<section className="flex w-full lg:h-screen flex-col-reverse lg:flex-row items-center justify-between mt-24 lg:-mt-[2rem] gap-x-24 relative px-wrapper">
+			<main className="flex flex-col justify-start items-center min-h-screen w-full pt-header z-10 relative pb-section">
+				<section className="flex w-full lg:h-screen flex-col-reverse lg:flex-row items-center justify-between mt-24 lg:-mt-[2rem] gap-x-24 relative px-wrapper overflow-x-hidden">
 					<div className="flex relative h-[507.5px] w-full lg:w-fit lg:flex-1 my-24 lg:my-0">
 						<Image
 							src={`/images/screenshot_1.png`}
@@ -69,7 +69,7 @@ export default function Home() {
 								lugar.
 							</p>
 						</div>
-						<PlayStoreEN className="cursor-pointer" />
+						<PlayStoreEN />
 					</div>
 
 					<p

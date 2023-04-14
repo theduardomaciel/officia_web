@@ -1,4 +1,5 @@
 import { Logo } from 'components/Icons';
+import BackToHomeButton from 'components/BackToHomeButton';
 
 export const metadata = {
 	title: 'Página não encontrada',
@@ -30,9 +31,7 @@ export default function NotFound() {
 					Acho que você chegou em algum lugar que não existe, pois a página que você
 					requisitou não foi encontrada.
 				</p>
-				<button className="font-semibold text-base flex flex-row items-center justify-center w-full px-5 py-4 bg-white rounded-xl text-gray-300 hover:bg-slate-200 transition-colors">
-					<a href="/">Voltar para a página inicial</a>
-				</button>
+				<BackToHomeButton />
 			</div>
 		</main>
 	);

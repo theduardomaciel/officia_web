@@ -9,7 +9,7 @@ export default function FormLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<>
 			<Header />
-			<main className="flex flex-col lg:flex-row items-center justify-between min-h-screen z-10 relative">
+			<main className="flex flex-col lg:flex-row items-center justify-start lg:justify-between min-h-screen z-10 relative">
 				<header className="relative z-10 flex w-full lg:w-[30vw] flex-col items-center justify-center h-[50vh] lg:h-auto bg-gray-400 lg:top-0 lg:left-0 lg:self-stretch">
 					<div className="flex h-full flex-col items-center justify-center gap-y-8 px-wrapper">
 						<Image

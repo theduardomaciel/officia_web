@@ -5,6 +5,9 @@ import * as FormPrimitive from '@radix-ui/react-form';
 
 import { cn } from 'lib/utils';
 
+// Components
+import { Spinner } from 'components/Icons';
+
 const Form = FormPrimitive.Root;
 
 const FormField = React.forwardRef<
@@ -72,7 +75,11 @@ const FormMessage = React.forwardRef<
 	React.ElementRef<typeof FormPrimitive.Message>,
 	React.ComponentPropsWithoutRef<typeof FormPrimitive.Message>
 >(({ children, className, ...props }, ref) => (
-	<FormPrimitive.Message ref={ref} className="text-sm text-text-200 opacity-[0.8]" {...props}>
+	<FormPrimitive.Message
+		ref={ref}
+		className={cn('text-sm text-red opacity-90', className)}
+		{...props}
+	>
 		{children}
 	</FormPrimitive.Message>
 ));
@@ -81,15 +88,16 @@ FormMessage.displayName = FormPrimitive.Message.displayName;
 const FormSubmit = React.forwardRef<
 	React.ElementRef<typeof FormPrimitive.Submit>,
 	React.ComponentPropsWithoutRef<typeof FormPrimitive.Submit>
->(({ children, className, ...props }, ref) => (
+>(({ children, className, disabled, ...props }, ref) => (
 	<FormPrimitive.Submit ref={ref} asChild {...props}>
 		<button
+			disabled={disabled}
 			className={cn(
-				'flex flex-row items-center justify-center w-full px-5 py-2.5 text-gray-300 font-semibold text-sm rounded-[10px] bg-white hover:bg-slate-200 transition-colors',
+				'flex flex-row items-center justify-center w-full px-5 py-2.5 text-gray-300 font-semibold text-sm rounded-[10px] bg-white  transition-colors enabled:hover:bg-slate-200',
 				className
 			)}
 		>
-			{children ?? 'Enviar'}
+			{disabled ? <Spinner width={18} height={18} /> : children ?? 'Enviar'}
 		</button>
 	</FormPrimitive.Submit>
 ));

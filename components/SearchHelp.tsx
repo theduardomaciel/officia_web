@@ -93,10 +93,10 @@ function Hit({ hit }: any) {
 		</div>
 	) : (
 		<Link
-			className="flex flex-col items-start justify-start gap-y-6"
+			className="flex flex-col items-start justify-start gap-y-6 w-full"
 			href={`/help/${hit.section}/${hit.slug}`}
 		>
-			<article className="flex flex-row justify-between items-center px-5 py-4 rounded-lg cursor-pointer bg-transparent hover:bg-gray-300 transition-colors gap-x-2">
+			<article className="flex flex-row w-full justify-between items-center px-5 py-4 rounded-lg cursor-pointer bg-transparent hover:bg-gray-300 transition-colors gap-x-2">
 				<div className="flex flex-col items-start justify-start gap-y-1 text-left">
 					<p className="capitalize text-xs text-white">{hit.section}</p>
 					<div>

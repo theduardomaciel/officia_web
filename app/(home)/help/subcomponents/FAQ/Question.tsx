@@ -21,7 +21,7 @@ export default function Question({ question, answer }: QuestionProps) {
 			onClick={toggleExpanded}
 		>
 			{/* Header */}
-			<div className="cursor-pointer transition flex flex-row px-5 items-center justify-between w-full h-16">
+			<div className="cursor-pointer transition flex flex-row px-5 items-center justify-between w-full h-fit py-5 gap-x-3">
 				<div className="flex flex-row items-center justify-start gap-x-6">
 					<FileQuestion
 						width={18}

@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 
 import { algoliasearch } from 'algoliasearch';
 
+/* Para des-logar: colocar 'http://logout:logout@' antes da URL */
+
 export async function GET(request: Request) {
 	const algoliaClient = algoliasearch(
 		process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID as string,
@@ -52,6 +54,9 @@ const getSerializedArticleBySlug = async (section: string, slug: string) => {
 
 	const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
 	const { content, data } = matter(fileContent);
+
+	// testar depois
+	//const parsedContent = content.replace(/(\r\n|\n|\r)/gm, '').replace(/<.*>/, '');
 
 	const article = {
 		title: data.title,
