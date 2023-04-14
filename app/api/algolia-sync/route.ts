@@ -78,7 +78,7 @@ const getSectionSerializedArticles = async (section: string) => {
 	return articles;
 };
 
-export const getAllSerializedArticles = async () => {
+const getAllSerializedArticles = async () => {
 	const sections = fs.readdirSync(rootDirectory);
 
 	let articles: any[] = [];
