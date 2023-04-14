@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
+import clsx from 'clsx';
 
 import { ChevronDown, FileQuestion } from 'lucide-react';
-import clsx from 'clsx';
 
 interface QuestionProps {
 	question: Array<string | React.ReactNode>;

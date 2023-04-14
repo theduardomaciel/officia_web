@@ -1,10 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
 
 // Components
-import Header from 'components/Header';
-import { HeaderButton, HeaderTitle, PageHeader } from '../LayoutComponents';
-import { Arima } from 'next/font/google';
+import Header, { HeaderTitle } from 'components/Header';
+import { HeaderButton, PageHeader } from '../LayoutComponents';
 
 export default function PurchaseTerms() {
 	return (
