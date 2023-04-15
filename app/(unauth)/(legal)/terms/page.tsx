@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 // Components
 import Header, { HeaderTitle } from 'components/Header';
-import { HeaderButton, PageHeader } from '../LayoutComponents';
-
-const anchorClass = 'hover:text-text-200 transition-colors';
+import { Container, Section } from 'components/Layout';
+import NavigationAnchor from 'components/NavigationAnchor';
+import LegalPageHeader from '../LegalPageHeader';
 
 export default function TermsOfUse() {
 	return (
@@ -17,12 +17,12 @@ export default function TermsOfUse() {
 					children: <HeaderTitle title="Termos de Uso" />
 				}}
 			>
-				<HeaderButton href="privacy-policy.pdf" />
+				<NavigationAnchor href={`/files/privacy-policy.pdf`}>Baixar PDF</NavigationAnchor>
 			</Header>
 			<main className="flex flex-col justify-start items-center min-h-screen z-10 relative">
-				<PageHeader title="Termos de Uso" lastUpdate="9 de abril de 2022" />
-				<section className="flex flex-col items-start justify-center px-wrapper py-section gap-y-14">
-					<p className="font-medium text-base text-white">
+				<LegalPageHeader title="Termos de Uso" lastUpdate="9 de abril de 2022" />
+				<Section className="gap-y-14">
+					<p className="font-medium text-base text-[var(--neutral)]">
 						Estes Termos de Serviço (&apos;Termos&apos;) regem seu acesso e uso de
 						nossos serviços, incluindo nosso site, SMS, APIs, notificações por e-mail,
 						aplicativos, botões, widgets, anúncios, serviços comerciais, e nossos outros
@@ -33,70 +33,55 @@ export default function TermsOfUse() {
 						nos Serviços (coletivamente denominados como &apos;Conteúdo&apos;). Ao
 						utilizar os Serviços, você concorda em estar sujeito a estes Termos.
 					</p>
-					<div className="w-full h-0 border-b border-b-gray-200 border-dashed" />
+					<div className="w-full h-0 border-b border-b-dark-gray-200 border-dashed" />
 					<div className="flex flex-col lg:flex-row items-start justify-center lg:justify-between w-full gap-12">
 						<ol
 							type="1"
-							className="flex flex-col items-start justify-start gap-y-6 list-inside list-decimal text-white lg:sticky lg:top-[calc(var(--header)+1rem)] lg:left-0 whitespace-nowrap"
+							className="flex flex-col items-start justify-start gap-y-6 list-inside list-decimal text-[var(--neutral)] lg:sticky lg:top-[calc(var(--header)+3rem)] lg:left-0 whitespace-nowrap"
 						>
-							<li>
-								<a className={anchorClass} href={'/terms#application-use'}>
-									Uso do Aplicativo
-								</a>
-							</li>
-							<li>
-								<a className={anchorClass} href={'/terms#user-account'}>
-									Conta do Usuário
-								</a>
-							</li>
-							<li>
-								<a className={anchorClass} href={'/terms#premium-subscription'}>
-									Assinatura Premium
-								</a>
-							</li>
-							<li>
-								<a className={anchorClass} href={'/terms#intellectual-property'}>
-									Propriedade Intelectual
-								</a>
-							</li>
-							<li>
-								<a className={anchorClass} href={'/terms#limitation-of-liability'}>
-									Limitação de Responsabilidade
-								</a>
-							</li>
-							<li>
-								<a
-									className={anchorClass}
-									href={'/terms#modification-of-the-terms-of-use'}
-								>
-									Modificação dos Termos de Uso
-								</a>
-							</li>
-							<li>
-								<a className={anchorClass} href={'/terms#rescission'}>
-									Rescisão
-								</a>
-							</li>
-							<li>
-								<a className={anchorClass} href={'/terms#applicable-law'}>
-									Lei Aplicável
-								</a>
-							</li>
-							<li>
-								<a className={anchorClass} href={'/terms#privacy'}>
-									Privacidade
-								</a>
-							</li>
-							<li>
-								<a className={anchorClass} href={'/terms#indemnity'}>
-									Indenização
-								</a>
-							</li>
-							<li>
-								<a className={anchorClass} href={'/terms#general-provisions'}>
-									Disposições Gerais
-								</a>
-							</li>
+							<ArticleNavigationItem href={'/terms#application-use'}>
+								Uso do Aplicativo
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#user-account'}>
+								Conta do Usuário
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#premium-subscription'}>
+								Assinatura Premium
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#intellectual-property'}>
+								Propriedade Intelectual
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#limitation-of-liability'}>
+								Limitação de Responsabilidade
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#modification-of-the-terms-of-use'}>
+								Modificação dos Termos de Uso
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#rescission'}>
+								Rescisão
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#applicable-law'}>
+								Lei Aplicável
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#privacy'}>
+								Privacidade
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#indemnity'}>
+								Indenização
+							</ArticleNavigationItem>
+
+							<ArticleNavigationItem href={'/terms#general-provisions'}>
+								Disposições Gerais
+							</ArticleNavigationItem>
 						</ol>
 						<article>
 							Termos de Uso do App &apos;Officia&apos;
@@ -219,11 +204,19 @@ export default function TermsOfUse() {
 							Em vigor desde: 9 de abril de 2023.
 						</article>
 					</div>
-				</section>
+				</Section>
 			</main>
 		</>
 	);
 }
+
+const ArticleNavigationItem = ({ children, href }: { children: React.ReactNode; href: string }) => (
+	<li key={href}>
+		<a className={'hover:text-text-200 transition-colors'} href={href}>
+			{children}
+		</a>
+	</li>
+);
 
 const ArticleHeader = ({ children, id }: { children: React.ReactNode; id?: string }) => (
 	<li className="list-inside list-decimal text-lg">

@@ -22,7 +22,7 @@ const SelectTrigger = React.forwardRef<
 	<SelectPrimitive.Trigger
 		ref={ref}
 		className={cn(
-			'flex h-10 items-center justify-between rounded-md border border-slate-300 bg-transparent px-4 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-100 dark:text-text-100 dark:focus:bg-gray-200 dark:focus:ring-offset-gray-400 gap-x-select hover:bg-gray-200 transition-colors',
+			'flex h-10 items-center justify-between rounded-md border border-gray-400 bg-transparent px-4 text-sm placeholder:text-text-200 focus:outline-none focus:ring-0 dark:focus:ring-2 focus:ring-text-100 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-dark-gray-100 dark:text-text-100 focus:bg-gray-300 dark:focus:bg-dark-gray-200 focus:ring-offset-transparent dark:focus:ring-offset-dark-gray-400 gap-x-select enabled:hover:bg-gray-200 enabled:dark:hover:bg-dark-gray-200 transition-colors',
 			className
 		)}
 		{...props}
@@ -42,7 +42,7 @@ const SelectContent = React.forwardRef<
 		<SelectPrimitive.Content
 			ref={ref}
 			className={cn(
-				'animate-in fade-in-80 relative z-50 overflow-hidden rounded-md border border-slate-100 bg-white text-slate-700 shadow-md dark:border-gray-100 dark:bg-gray-400 dark:text-text-100',
+				'animate-in fade-in-80 relative z-50 overflow-hidden rounded-md border text-text-100 dark:text-text-100 shadow-md dark:border-dark-gray-100 border-gray-400 bg-gray-300 dark:bg-dark-gray-400',
 				className
 			)}
 			{...props}
@@ -59,17 +59,14 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<SelectPrimitive.Label
 		ref={ref}
-		className={cn(
-			'py-2.5 px-4 text-[13px] font-medium text-slate-900 dark:text-text-200',
-			className
-		)}
+		className={cn('py-2.5 px-4 text-[13px] font-medium text-text-200', className)}
 		{...props}
 	/>
 ));
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
 const scrollClasses = cn(
-	'flex items-center justify-center h-[25px] bg-gray-300 text-text-200 cursor-default'
+	'flex items-center justify-center h-[25px] bg-gray-200 dark:bg-dark-gray-300 text-text-200 cursor-default'
 );
 
 const SelectScrollUp = React.forwardRef<
@@ -101,7 +98,7 @@ const SelectItem = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Item
 		<SelectPrimitive.Item
 			ref={ref}
 			className={cn(
-				'relative flex cursor-default select-none items-center py-2.5 px-4 gap-x-select text-sm font-medium outline-none focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-gray-200',
+				'relative flex cursor-default select-none items-center py-2.5 px-4 gap-x-select text-sm font-medium outline-none focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-dark-gray-200',
 				className
 			)}
 			{...props}
@@ -124,7 +121,7 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<SelectPrimitive.Separator
 		ref={ref}
-		className={cn('-mx-1 my-1 h-px bg-slate-100 dark:bg-gray-100 opacity-50', className)}
+		className={cn('-mx-1 my-1 h-px bg-slate-100 dark:bg-dark-gray-100 opacity-50', className)}
 		{...props}
 	/>
 ));
@@ -140,9 +137,9 @@ const SelectWithLabel = React.forwardRef<
 	SelectWithLabelProps
 >(({ children, label, options, ...rest }, ref) => (
 	<div className="flex flex-col w-full gap-y-3.5">
-		<label className="text-white text-base text-left">{label}</label>
+		<label className="text-[var(--neutral)] text-base text-left">{label}</label>
 		<Select {...rest}>
-			<SelectTrigger className="w-full py-3 h-fit bg-gray-300 hover:bg-gray-200">
+			<SelectTrigger className="w-full py-3 h-fit bg-gray-300 dark:bg-dark-gray-300 hover:bg-gray-200 dark:hover:bg-dark-gray-200">
 				<SelectValue placeholder="-" />
 			</SelectTrigger>
 			<SelectContent

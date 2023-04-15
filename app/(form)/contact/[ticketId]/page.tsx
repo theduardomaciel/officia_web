@@ -4,7 +4,7 @@ export default function ContactSuccessPage({ params }: { params: { ticketId: str
 	return (
 		<>
 			<div className="flex flex-col items-center justify-center py-section px-wrapper gap-y-12">
-				<h1 className="font-bold text-3xl leading-[135%] text-white text-center">
+				<h1 className="font-bold text-3xl leading-[135%] text-[var(--neutral)] text-center">
 					Sua mensagem de contato foi enviada com sucesso!
 				</h1>
 				<p>

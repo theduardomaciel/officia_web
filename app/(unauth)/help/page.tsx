@@ -1,21 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { Logo } from 'components/Icons';
+
 // Components
 import Header, { HeaderTitle } from 'components/Header';
-import { GoToContactButton, PageHeader } from './subcomponents/Layout';
+import { Container, PageHeader, Section } from 'components/Layout';
+import NavigationAnchor from 'components/NavigationAnchor';
 import FaqQuestions from './subcomponents/FAQ';
+import HelpSearchBar from 'app/(unauth)/help/subcomponents/HelpSearchBar';
 
-export default function PurchaseTerms() {
+export default function HelpCenter() {
 	return (
 		<>
 			<Header>
 				<HeaderTitle title="Central de Ajuda" />
-				<GoToContactButton />
+				<NavigationAnchor href="/contact">Fale Conosco</NavigationAnchor>
 			</Header>
-			<main className="flex flex-col justify-start items-center min-h-screen z-10 relative">
-				<PageHeader title="Como podemos ajudar?" />
-				<section className="flex flex-col items-start w-full justify-center px-wrapper py-section gap-y-20">
+			<Container>
+				<PageHeader>
+					<div className="flex flex-col items-center justify-center gap-y-8 px-wrapper">
+						<Logo width={75} height={60} className="z-10" />
+						<h1 className="z-10 w-full text-center font-title text-4xl text-[var(--neutral)] lg:w-fit lg:text-5xl">
+							Como podemos ajudar?
+						</h1>
+						<HelpSearchBar
+							placeholder="Descreva o problema ou dúvida"
+							className="min-w-[35vw]"
+						/>
+					</div>
+				</PageHeader>
+				<Section>
 					<ul className="flex flex-row flex-wrap w-full items-start justify-between gap-y-14">
 						<SectionPreview
 							key={'business'}
@@ -79,8 +94,8 @@ export default function PurchaseTerms() {
 						/>
 					</ul>
 					<FaqQuestions />
-				</section>
-			</main>
+				</Section>
+			</Container>
 		</>
 	);
 }
@@ -95,13 +110,13 @@ interface SectionPreviewProps {
 }
 
 const SectionPreview = ({ title, links, sectionHref }: SectionPreviewProps) => (
-	<li className="flex flex-col items-start py-9 gap-y-9 bg-gray-400 border border-gray-100 rounded-[10px] max-w-sm">
-		<h6 className="font-bold text-2xl px-9 text-white">
+	<li className="flex flex-col items-start py-9 gap-y-9 bg-gray-200 dark:bg-dark-gray-400 border border-gray-400 dark:border-dark-gray-100 rounded-[10px] max-w-sm">
+		<h6 className="font-bold text-2xl px-9 text-[var(--neutral)]">
 			{title.map((text, index) => (
 				<React.Fragment key={index.toString()}>{text}</React.Fragment>
 			))}
 		</h6>
-		<div className="w-full h-0 border border-b-gray-100" />
+		<div className="w-full h-0 border border-b-dark-gray-100" />
 		<ul className="flex flex-col items-start px-9 gap-y-6">
 			{links.map(({ href, title }, index) => (
 				<li key={index.toString()}>
@@ -115,7 +130,7 @@ const SectionPreview = ({ title, links, sectionHref }: SectionPreviewProps) => (
 			))}
 		</ul>
 		<Link href={sectionHref} className="ml-9">
-			<button className="flex items-center justify-center text-center px-6 py-2 text-sm text-white bg-gray-200 hover:bg-gray-100 transition-colors rounded-3xl">
+			<button className="flex items-center justify-center text-center px-6 py-2 text-sm text-[var(--neutral)] bg-gray-300 hover:bg-gray-100 dark:bg-dark-gray-200 dark:hover:bg-dark-gray-100 transition-colors rounded-3xl">
 				Ver todos os artigos
 			</button>
 		</Link>

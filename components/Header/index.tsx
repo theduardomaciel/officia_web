@@ -14,9 +14,9 @@ export default function Header({ children, interactivityProps }: Props) {
 		<header
 			id="header"
 			className="w-screen h-[var(--header)] flex items-center justify-between px-wrapper fixed top-0 z-40 transition-colors 
-            before:absolute before:w-screen before:h-[var(--header)] before:top-0 before:left-0 before:bg-gray-500 before:-z-10 before:brightness-50 before:transition before:border before:border-b-gray-100 before:opacity-0 data-[scroll]:backdrop-blur-lg data-[scroll]:before:opacity-50"
+            before:absolute before:w-screen before:h-[var(--header)] before:top-0 before:left-0 before:bg-transparent dark:before:bg-dark-gray-500 before:-z-10 before:brightness-50 before:transition before:border border-b-gray-400 dark:before:border-b-dark-gray-100 before:opacity-0 data-[scroll]:backdrop-blur-lg data-[scroll]:before:opacity-50"
 		>
-			<a href="/" className="font-title text-2xl z-50 text-white">
+			<a href="/" className="font-title text-2xl z-50 text-[var(--neutral)]">
 				officia
 			</a>
 			{!interactivityProps?.putTogether && (
@@ -34,10 +34,30 @@ export default function Header({ children, interactivityProps }: Props) {
 
 export function HeaderTitle({ title, href }: { title: string; href?: string }) {
 	return href ? (
-		<Link href={href} className="font-semibold text-sm lg:flex hidden cursor-pointer">
+		<Link
+			href={href}
+			className="font-semibold text-sm lg:flex hidden cursor-pointer text-text-100"
+		>
 			{title}
 		</Link>
 	) : (
 		<p className="font-semibold text-sm lg:flex hidden">{title}</p>
 	);
 }
+
+import { classed } from '@tw-classed/react';
+
+export const Item = classed.li(
+	'font-semibold cursor-pointer text-text-100 hover:text-[var(--neutral)] transition-colors',
+	{
+		variants: {
+			size: {
+				normal: 'text-sm',
+				large: 'text-xl'
+			}
+		},
+		defaultVariants: {
+			size: 'normal'
+		}
+	}
+);

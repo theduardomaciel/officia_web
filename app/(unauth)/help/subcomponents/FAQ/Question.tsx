@@ -15,9 +15,12 @@ export default function Question({ question, answer }: QuestionProps) {
 
 	return (
 		<li
-			className={clsx('transition hover:bg-gray-300 bg-gray-400 rounded-[15px]', {
-				'bg-gray-300 border border-gray-100': expanded
-			})}
+			className={clsx(
+				'transition hover:bg-gray-200 dark:hover:bg-dark-gray-300 bg-gray-300 dark:bg-dark-gray-400 rounded-[15px]',
+				{
+					'bg-dark-gray-300 border border-dark-gray-100': expanded
+				}
+			)}
 			onClick={toggleExpanded}
 		>
 			{/* Header */}
@@ -45,7 +48,7 @@ export default function Question({ question, answer }: QuestionProps) {
 				className={clsx(
 					'px-5 pt-0 overflow-hidden transition-[max-height,opacity] max-h-0',
 					{
-						'max-h-80 opacity-100': expanded,
+						'max-h-[50rem] opacity-100': expanded,
 						'max-h-0 opacity-0': !expanded
 					}
 				)}

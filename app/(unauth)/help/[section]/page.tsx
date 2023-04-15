@@ -1,8 +1,12 @@
 import Link from 'next/link';
 
+import { Logo } from 'components/Icons';
+
 // Components
+import { Container, PageHeader, Section } from 'components/Layout';
 import Header, { HeaderTitle } from 'components/Header';
-import { GoToContactButton, PageHeader } from '../subcomponents/Layout';
+import NavigationAnchor from 'components/NavigationAnchor';
+import HelpSearchBar from 'app/(unauth)/help/subcomponents/HelpSearchBar';
 
 // Utils
 import { ArticleMeta, getSectionArticlesMeta } from 'lib/mdx';
@@ -18,11 +22,22 @@ export default async function HelpSection({ params }: { params: { section: strin
 		<>
 			<Header>
 				<HeaderTitle title="Central de Ajuda" href="/help" />
-				<GoToContactButton />
+				<NavigationAnchor href="/contact">Fale Conosco</NavigationAnchor>
 			</Header>
-			<main className="relative z-10 flex min-h-screen flex-col items-center justify-start">
-				<PageHeader title={sectionTitle} />
-				<section className="flex w-full flex-col items-start justify-center gap-y-20 px-wrapper py-section">
+			<Container>
+				<PageHeader>
+					<div className="flex flex-col items-center justify-center gap-y-8 px-wrapper">
+						<Logo width={75} height={60} className="z-10" />
+						<h1 className="z-10 w-full text-center font-title text-4xl text-var(--neutral) lg:w-fit lg:text-5xl">
+							{sectionTitle}
+						</h1>
+						<HelpSearchBar
+							placeholder="Descreva o problema ou dúvida"
+							className="min-w-[35vw]"
+						/>
+					</div>
+				</PageHeader>
+				<Section>
 					<ul className="flex w-full flex-row flex-wrap items-start justify-between gap-y-14">
 						{articles.map((article) => (
 							<ArticleLink
@@ -32,8 +47,8 @@ export default async function HelpSection({ params }: { params: { section: strin
 							/>
 						))}
 					</ul>
-				</section>
-			</main>
+				</Section>
+			</Container>
 		</>
 	);
 }
@@ -49,9 +64,9 @@ const ArticleLink = ({ meta, href }: { meta: ArticleMeta; href: string }) => {
 	return (
 		<Link
 			href={href}
-			className="flex w-full flex-col items-center justify-start gap-x-9 rounded-[10px] bg-gray-400 p-9 transition-colors duration-300 ease-in-out hover:bg-gray-300 lg:flex-row"
+			className="flex w-full flex-col items-center justify-start gap-x-9 rounded-[10px] bg-gray-300 dark:bg-dark-gray-400 p-9 transition-colors duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-dark-gray-300 lg:flex-row"
 		>
-			<h6 className="text-left text-lg font-semibold text-white">{meta.title}</h6>
+			<h6 className="text-left text-lg font-semibold text-[var(--neutral)]">{meta.title}</h6>
 			<p className="text-left text-sm font-normal text-text-100">
 				{lastUpdatedAtString ?? publishedAtString}
 			</p>

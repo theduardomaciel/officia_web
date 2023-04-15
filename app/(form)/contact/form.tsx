@@ -97,7 +97,7 @@ export default function ContactForm() {
 			/>
 			<FormField className="grid mb-[10px]" name="email">
 				<div className="flex items-baseline justify-between">
-					<FormLabel className="text-[15px] font-medium leading-[35px] text-white">
+					<FormLabel className="text-[15px] font-medium leading-[35px] text-[var(--neutral)]">
 						Seu endereço de e-mail
 					</FormLabel>
 					<FormMessage match="valueMissing">Por favor, insira seu e-mail</FormMessage>
@@ -121,7 +121,7 @@ export default function ContactForm() {
 			/>
 			<FormField className="grid mb-[10px]" name="subject">
 				<div className="flex items-baseline justify-between">
-					<FormLabel className="text-[15px] font-medium leading-[35px] text-white">
+					<FormLabel className="text-[15px] font-medium leading-[35px] text-[var(--neutral)]">
 						Assunto
 					</FormLabel>
 				</div>
@@ -131,7 +131,7 @@ export default function ContactForm() {
 			</FormField>
 			<FormField className="grid mb-[10px]" name="message">
 				<div className="flex items-baseline justify-between">
-					<FormLabel className="text-[15px] font-medium leading-[35px] text-white">
+					<FormLabel className="text-[15px] font-medium leading-[35px] text-[var(--neutral)]">
 						Descrição
 					</FormLabel>
 					<FormMessage match="valueMissing">
@@ -150,7 +150,7 @@ export default function ContactForm() {
 				className={clsx('relative', {
 					'cursor-not-allowed': status === 'loading'
 				})}
-				disabled={status === 'loading'}
+				isLoading={status === 'loading'}
 			>
 				Enviar
 				{status === 'error' && (

@@ -34,7 +34,7 @@ export default function MobileMenu() {
 		<>
 			<div
 				className={clsx(
-					'flex flex-col w-screen h-screen absolute top-0 left-0 z-40 transition bg-gray-600 pt-header px-wrapper items-center gap-y-16 justify-center lg:hidden',
+					'flex flex-col w-screen h-screen absolute top-0 left-0 z-40 transition bg-slate-50 dark:bg-dark-gray-600 pt-header px-wrapper items-center gap-y-16 justify-center lg:hidden',
 					{
 						'opacity-0 invisible': !isMenuOpen,
 						'opacity-100 visible': isMenuOpen
@@ -54,7 +54,7 @@ export default function MobileMenu() {
 					<li key={'faq_mobile'} className="font-semibold text-xl cursor-pointer">
 						FAQ
 					</li>
-					{/* <button className="flex items-center justify-center px-5 py-2 bg-primary rounded-3xl text-gray-300 font-semibold text-base gap-x-3">
+					{/* <button className="flex items-center justify-center px-5 py-2 bg-primary rounded-3xl text-dark-gray-300 font-semibold text-base gap-x-3">
 						Entrar
 						<RightArrow />
 					</button> */}

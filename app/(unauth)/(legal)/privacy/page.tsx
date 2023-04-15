@@ -2,7 +2,9 @@ import React from 'react';
 
 // Components
 import Header, { HeaderTitle } from 'components/Header';
-import { HeaderButton, PageHeader } from '../LayoutComponents';
+import { Container, Section } from 'components/Layout';
+import NavigationAnchor from 'components/NavigationAnchor';
+import LegalPageHeader from '../LegalPageHeader';
 
 export default function PrivacyPolicy() {
 	return (
@@ -14,10 +16,10 @@ export default function PrivacyPolicy() {
 					children: <HeaderTitle title="Política de Privacidade" />
 				}}
 			>
-				<HeaderButton href="privacy-policy.pdf" />
+				<NavigationAnchor href={`/files/privacy-policy.pdf`}>Baixar PDF</NavigationAnchor>
 			</Header>
-			<main className="flex flex-col justify-start items-center min-h-screen z-10 relative">
-				<PageHeader
+			<Container>
+				<LegalPageHeader
 					title="Política de Privacidade"
 					subtitle={[
 						'Formulamos nossa Política de Privacidade da maneira mais simples possível, a fim de capacitá-lo a tomar decisões informadas quando você usar o ',
@@ -26,12 +28,12 @@ export default function PrivacyPolicy() {
 					]}
 					lastUpdate="9 de abril de 2022"
 				/>
-				<section className="flex flex-col items-start justify-center px-wrapper py-section gap-y-14">
+				<Section className="gap-y-14">
 					<div className="flex flex-col items-start justify-start gap-y-4">
-						<h2 className="leading-[125%] font-title text-4xl max-w-[65%] text-white">
+						<h2 className="leading-[125%] font-title text-4xl max-w-[65%] text-[var(--neutral)]">
 							Antes de continuar, pedimos que preste atenção ao seguinte:
 						</h2>
-						<p className="font-medium text-base text-white">
+						<p className="font-medium text-base text-[var(--neutral)]">
 							É realmente difícil contentar a todos com uma Política de Privacidade. A
 							maioria das pessoas que usam serviços querem algo curto e fácil de
 							compreender. Embora desejemos poder encaixar tudo o que você precisa
@@ -72,7 +74,7 @@ export default function PrivacyPolicy() {
 							}}
 						/>
 					</div>
-					<div className="w-full h-0 border-b border-b-gray-200 border-dashed" />
+					<div className="w-full h-0 border-b border-b-dark-gray-200 border-dashed" />
 					<article>
 						Agradecemos por usar o aplicativo &apos;Officia&apos; (&apos;nós&apos;,
 						&apos;nosso&apos; ou &apos;aplicativo&apos;), que foi criado para ajudar
@@ -128,20 +130,20 @@ export default function PrivacyPolicy() {
 						conosco através do e-mail [
 						<a
 							href="mailto:app.officia@gmail.com"
-							className="hover:text-white underline"
+							className="hover:text-[var(--neutral)] underline"
 						>
 							app.officia@gmail.com
 						</a>
 						].
 					</article>
-				</section>
-			</main>
+				</Section>
+			</Container>
 		</>
 	);
 }
 
 const ArticleHeader = ({ children }: { children: React.ReactNode }) => (
-	<span className="font-bold text-lg text-white">{children}</span>
+	<span className="font-bold text-lg text-[var(--neutral)]">{children}</span>
 );
 
 interface TopicProps {
@@ -154,9 +156,9 @@ interface TopicProps {
 
 const Topic = ({ title, link }: TopicProps) => (
 	<div className="flex flex-col items-start justify-start gap-y-6">
-		<h2 className="font-extrabold text-2xl text-white">{...title}</h2>
+		<h2 className="font-extrabold text-2xl text-[var(--neutral)]">{...title}</h2>
 		{link && (
-			<a href={link.href} className="font-regular text-sm text-green underline">
+			<a href={link.href} className="font-regular text-sm text-green hover:underline">
 				{link.text}
 			</a>
 		)}

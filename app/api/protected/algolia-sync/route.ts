@@ -56,7 +56,7 @@ const getSerializedArticleBySlug = async (section: string, slug: string) => {
 	const { content, data } = matter(fileContent);
 
 	// testar depois
-	//const parsedContent = content.replace(/(\r\n|\n|\r)/gm, '').replace(/<.*>/, '');
+	const parsedContent = content.replace(/(\r\n|\n|\r)/gm, '').replace(/<.*>/, '');
 
 	const article = {
 		title: data.title,
@@ -64,7 +64,7 @@ const getSerializedArticleBySlug = async (section: string, slug: string) => {
 		publishedAt: new Date(data.publishedAt),
 		updatedAt: new Date(data.updatedAt),
 		section: section,
-		content
+		content: parsedContent
 	};
 
 	return article;

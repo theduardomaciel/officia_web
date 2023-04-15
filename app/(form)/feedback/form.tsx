@@ -48,10 +48,10 @@ export default function FeedbackForm() {
 			onSubmit={onSubmit}
 		>
 			<div className="flex flex-col items-start justify-start gap-y-4">
-				<h6 className="font-semibold text-white text-base text-left">
+				<h6 className="font-semibold text-[var(--neutral)] text-base text-left">
 					Muito obrigado por se interessar em entrar em contato!
 				</h6>
-				<p className="font-normal text-white text-left text-base leading-5">
+				<p className="font-normal text-[var(--neutral)] text-left text-base leading-5">
 					Digite seu feedback abaixo sobre como podemos melhorar nossos serviços e
 					produtos! <br /> <br /> Não precisa se acanhar, pode falar sobre tudo que lhe
 					incomoda na plataforma para que possamos melhorar ainda mais!
@@ -59,7 +59,7 @@ export default function FeedbackForm() {
 			</div>
 			<FormField className="grid mb-[10px]" name="email">
 				<div className="flex items-baseline justify-between">
-					<FormLabel className="text-[15px] font-medium leading-[35px] text-white">
+					<FormLabel className="text-[15px] font-medium leading-[35px] text-[var(--neutral)]">
 						Seu endereço de e-mail
 					</FormLabel>
 					<FormMessage match="valueMissing">
@@ -100,7 +100,7 @@ export default function FeedbackForm() {
 				className={clsx('relative', {
 					'cursor-not-allowed': status === 'loading'
 				})}
-				disabled={status === 'loading'}
+				isLoading={status === 'loading'}
 			>
 				Enviar
 				{status === 'error' && (

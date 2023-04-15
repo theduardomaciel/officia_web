@@ -3,12 +3,13 @@ import Link from 'next/link';
 
 // Components
 import Header from 'components/Header';
-import HelpSearchBar from 'components/SearchHelp';
+import HelpSearchBar from 'app/(unauth)/help/subcomponents/HelpSearchBar';
 
 // Utils
 import { ArticleMeta, getArticleBySlug, getSectionArticlesMeta } from 'lib/mdx';
 import { convertDate } from 'lib/date';
 import { ChevronRight } from 'lucide-react';
+import { Container, PageHeader, Section } from 'components/Layout';
 
 interface PageProps {
 	params: {
@@ -42,17 +43,24 @@ export default async function HelpSection({ params }: PageProps) {
 					className="border-none py-2 min-w-[22.5vw] max-w-[25vw] hidden lg:flex"
 				/>
 			</Header>
-			<main className="relative z-10 flex min-h-screen flex-col items-center justify-start">
-				<header className="relative z-10 flex w-full flex-col items-center justify-start bg-gray-400 pt-header min-h-[50vh] pb-6 lg:pb-0">
+			<Container>
+				<PageHeader className="!h-fit min-h-[50vh] pb-6 lg:pb-0">
 					<div className="flex flex-1 flex-col w-full items-start justify-center gap-y-6 px-wrapper">
 						<Image
-							className="pointer-events-none absolute z-[6] object-cover"
+							className="pointer-events-none absolute z-[6] object-cover flex dark:hidden"
 							fill
 							src={`/images/pattern.png`}
 							alt="Pattern"
 							priority
 						/>
-						<div className="z-10 flex flex-row items-center justify-start gap-x-2.5 text-white">
+						<Image
+							className="pointer-events-none absolute z-[6] object-cover hidden dark:flex"
+							fill
+							src={`/images/pattern_dark.png`}
+							alt="Pattern"
+							priority
+						/>
+						<div className="z-10 flex flex-row items-center justify-start gap-x-2.5 text-[var(--neutral)]">
 							<a
 								className="text-sm font-semibold transition-colors hover:text-green hover:underline"
 								href="/help"
@@ -67,15 +75,15 @@ export default async function HelpSection({ params }: PageProps) {
 								{section.charAt(0).toUpperCase() + section.slice(1)}
 							</Link>
 						</div>
-						<h1 className="z-10 w-full text-left font-title text-4xl text-white lg:w-fit lg:text-5xl">
+						<h1 className="z-10 w-full text-left font-title text-4xl text-[var(--neutral)] lg:w-fit lg:text-5xl">
 							{article.meta.title}
 						</h1>
 						<p className="z-10 text-base font-normal text-text-100">
 							{lastUpdatedAtString ?? publishedAtString}
 						</p>
 					</div>
-				</header>
-				<section className="flex w-full flex-col items-start justify-center gap-y-16 px-wrapper py-section">
+				</PageHeader>
+				<Section className="gap-y-16">
 					<div className="relative flex w-full flex-row items-start justify-between gap-x-12 lg:gap-x-32">
 						<article className="container prose max-w-none lg:prose-pre:max-w-[60vw] py-4 dark:prose-invert">
 							{article.content}
@@ -93,8 +101,8 @@ export default async function HelpSection({ params }: PageProps) {
 								))}
 						</aside>
 					</div>
-				</section>
-			</main>
+				</Section>
+			</Container>
 		</>
 	);
 }
@@ -102,8 +110,8 @@ export default async function HelpSection({ params }: PageProps) {
 const ArticleLink = ({ meta, href }: { meta: ArticleMeta; href: string }) => (
 	<Link
 		href={href}
-		className="flex w-full flex-col rounded-[5px] bg-gray-400 p-3 transition-colors duration-300 ease-in-out hover:bg-gray-200"
+		className="flex w-full flex-col rounded-[5px] bg-gray-300 dark:bg-dark-gray-400 p-3 transition-colors duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-dark-gray-200"
 	>
-		<p className="text-left text-sm font-normal text-white">{meta.title}</p>
+		<p className="text-left text-sm font-normal text-[var(--neutral)]">{meta.title}</p>
 	</Link>
 );

@@ -8,6 +8,7 @@ module.exports = {
 		// Or if using `src` directory:
 		'./src/**/*.{js,ts,jsx,tsx}'
 	],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
@@ -19,10 +20,10 @@ module.exports = {
 				yellow: '#FFBB0D',
 				purple: '#9747FF',
 				text: {
-					100: '#C4C4C4',
-					200: '#A1A1AA'
+					100: 'var(--text-100)',
+					200: 'var(--text-200)'
 				},
-				gray: {
+				'dark-gray': {
 					100: '#666666',
 					200: '#333333',
 					300: '#292929',

@@ -26,7 +26,7 @@ const FormLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<FormPrimitive.Label
 		ref={ref}
-		className={cn('text-white text-base text-left', className)}
+		className={cn('text-[var(--neutral)] text-base text-left', className)}
 		{...props}
 	/>
 ));
@@ -42,16 +42,12 @@ const FormControl = React.forwardRef<
 ));
 FormControl.displayName = FormPrimitive.Control.displayName;
 
+export const inputClass =
+	'z-10 flex w-full flex-row items-center rounded-md border border-gray-400 dark:border-dark-gray-100 bg-gray-300 dark:bg-dark-gray-300 py-3 px-4 text-sm font-normal text-[var(--neutral)] placeholder:text-text-100 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--neutral)] disabled:cursor-not-allowed';
+
 const FormInput = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
 	({ className, ...rest }, ref) => (
-		<input
-			className={cn(
-				'z-10 flex w-full flex-row items-center rounded-md border border-gray-100 bg-gray-300 py-3 px-4 text-sm font-normal text-white placeholder:text-text-100 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--neutral)]',
-				className
-			)}
-			ref={ref}
-			{...rest}
-		/>
+		<input className={cn(inputClass, className)} ref={ref} {...rest} />
 	)
 );
 FormInput.displayName = 'FormInput';
@@ -61,10 +57,7 @@ const FormTextarea = React.forwardRef<
 	React.TextareaHTMLAttributes<HTMLTextAreaElement>
 >(({ className, ...rest }, ref) => (
 	<textarea
-		className={cn(
-			'z-10 flex w-full flex-row items-center rounded-md border border-gray-100 bg-gray-300 py-3 px-4 text-sm font-normal text-white placeholder:text-text-100 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--neutral)] min-h-[120px] h-fit resize-none',
-			className
-		)}
+		className={cn(inputClass, 'min-h-[120px] h-fit resize-none', className)}
 		ref={ref}
 		{...rest}
 	/>
@@ -85,19 +78,24 @@ const FormMessage = React.forwardRef<
 ));
 FormMessage.displayName = FormPrimitive.Message.displayName;
 
+interface SelectTriggerProps extends React.ComponentPropsWithoutRef<typeof FormPrimitive.Submit> {
+	isLoading?: boolean;
+}
+
 const FormSubmit = React.forwardRef<
 	React.ElementRef<typeof FormPrimitive.Submit>,
-	React.ComponentPropsWithoutRef<typeof FormPrimitive.Submit>
->(({ children, className, disabled, ...props }, ref) => (
-	<FormPrimitive.Submit ref={ref} asChild {...props}>
+	SelectTriggerProps
+>(({ children, className, isLoading, disabled, ...props }, ref) => (
+	<FormPrimitive.Submit ref={ref} asChild>
 		<button
-			disabled={disabled}
 			className={cn(
-				'flex flex-row items-center justify-center w-full px-5 py-2.5 text-gray-300 font-semibold text-sm rounded-[10px] bg-white  transition-colors enabled:hover:bg-slate-200',
+				'flex flex-row items-center justify-center w-full px-5 py-2.5 bg-text-100 dark:bg-slate-50 text-slate-50 dark:text-dark-gray-300 font-semibold text-sm rounded-[10px] transition-colors dark:enabled:hover:bg-slate-300 disabled:cursor-not-allowed',
 				className
 			)}
+			disabled={isLoading || disabled}
+			{...props}
 		>
-			{disabled ? <Spinner width={18} height={18} /> : children ?? 'Enviar'}
+			{isLoading ? <Spinner width={18} height={18} /> : children ?? 'Enviar'}
 		</button>
 	</FormPrimitive.Submit>
 ));

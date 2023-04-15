@@ -4,7 +4,7 @@ export default function FeedbackSuccessPage({ params }: { params: { ticketId: st
 	return (
 		<>
 			<div className="flex flex-col items-center justify-center py-section px-wrapper gap-y-12">
-				<h1 className="font-bold text-3xl leading-[135%] text-white text-center lg:max-w-[65%]">
+				<h1 className="font-bold text-3xl leading-[135%] text-[var(--neutral)] text-center lg:max-w-[65%]">
 					Muito obrigado por contribuir com seu feedback!
 				</h1>
 				<p>

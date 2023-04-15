@@ -2,7 +2,9 @@ import React from 'react';
 
 // Components
 import Header, { HeaderTitle } from 'components/Header';
-import { HeaderButton, PageHeader } from '../LayoutComponents';
+import { Container, Section } from 'components/Layout';
+import NavigationAnchor from 'components/NavigationAnchor';
+import LegalPageHeader from '../LegalPageHeader';
 
 export default function PurchaseTerms() {
 	return (
@@ -14,11 +16,11 @@ export default function PurchaseTerms() {
 					children: <HeaderTitle title="Termos de Compra" />
 				}}
 			>
-				<HeaderButton href="privacy-policy.pdf" />
+				<NavigationAnchor href={`/files/privacy-policy.pdf`}>Baixar PDF</NavigationAnchor>
 			</Header>
-			<main className="flex flex-col justify-start items-center min-h-screen z-10 relative">
-				<PageHeader title="Termos de Compra" lastUpdate="9 de abril de 2022" />
-				<section className="flex flex-col items-start justify-center px-wrapper py-section gap-y-14">
+			<Container>
+				<LegalPageHeader title="Termos de Compra" lastUpdate="9 de abril de 2022" />
+				<Section className="gap-y-14">
 					<p className="font-medium text-base">
 						Termos de Compra <br /> <br />
 						Ao adquirir a assinatura premium do aplicativo &apos;officia&apos;, você
@@ -54,14 +56,14 @@ export default function PurchaseTerms() {
 						<br /> <br />
 						Data de vigência: 9 de abril de 2023.
 					</p>
-				</section>
-			</main>
+				</Section>
+			</Container>
 		</>
 	);
 }
 
 const ArticleHeader = ({ children, id }: { children: React.ReactNode; id?: string }) => (
-	<li className="list-inside list-decimal text-base text-white">
+	<li className="list-inside list-decimal text-base text-[var(--neutral)]">
 		<span id={id} className="font-bold text-base pt-link -mt-link">
 			{children}
 		</span>

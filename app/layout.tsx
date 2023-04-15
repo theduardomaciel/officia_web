@@ -1,6 +1,7 @@
 import { Inter, Abril_Fatface } from 'next/font/google';
 
 import './globals.css';
+import { Providers } from './providers';
 
 const inter = Inter({
 	variable: '--font-inter',
@@ -23,8 +24,10 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className={`${inter.variable} ${title.variable}`}>
-			<body>{children}</body>
+		<html lang="en" className={`${inter.variable} ${title.variable}`} suppressHydrationWarning>
+			<body>
+				<Providers>{children}</Providers>
+			</body>
 		</html>
 	);
 }

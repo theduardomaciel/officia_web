@@ -21,13 +21,13 @@ export default function NotFound() {
 				<Logo width={100} height={100} />
 			</div>
 			<div className="flex flex-col items-center justify-center lg:items-start lg:flex-[0.425] gap-y-12">
-				<h1 className="font-title text-7xl lg:text-[110px] text-white lg:text-left">
+				<h1 className="font-title text-7xl lg:text-[110px] text-[var(--neutral)] lg:text-left">
 					404...
 				</h1>
-				<h2 className="text-center lg:text-left text-white text-2xl font-bold">
+				<h2 className="text-center lg:text-left text-[var(--neutral)] text-2xl font-bold">
 					Deu ruim! <br className="lg:hidden" /> Repito: deu ruim!
 				</h2>
-				<p className="text-center lg:text-left text-white text-lg font-medium">
+				<p className="text-center lg:text-left text-[var(--neutral)] text-lg font-medium">
 					Acho que você chegou em algum lugar que não existe, pois a página que você
 					requisitou não foi encontrada.
 				</p>

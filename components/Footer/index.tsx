@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { PlayStoreEN } from 'components/Icons';
+import { DownloadIcon, GithubIcon, TwitterIcon } from 'components/Icons';
 
 // Components
 import ThemePicker from './subcomponents/ThemePicker';
@@ -11,7 +11,7 @@ import FeedbackButton from './subcomponents/FeedbackButton';
 
 export default function Footer() {
 	return (
-		<footer className="w-full flex flex-col items-center justify-center gap-y-10 gap-x-12 px-wrapper border border-t-gray-100 bg-gray-400 pt-12 pb-12">
+		<footer className="w-full flex flex-col items-center justify-center gap-y-10 gap-x-12 px-wrapper border-t border-t-gray-400 dark:border-t-dark-gray-100 bg-gray-300 dark:bg-dark-gray-400 pt-12 pb-12">
 			<div className="flex flex-col items-start justify-start w-full gap-12">
 				<div className="flex flex-col md:flex-row flex-wrap gap-y-12 items-start justify-between gap-x-4 w-full relative">
 					{/* Column1 - officia title and PC buttons holder */}
@@ -22,27 +22,29 @@ export default function Footer() {
 								<a href="/" className="font-title text-2xl text-text-100">
 									officia
 								</a>
-								<div className="h-6 w-0 border-r border-gray-100 rounded" />
+								<div className="h-6 w-0 border-r border-gray-400 dark:border-dark-gray-100 rounded" />
 								<a
 									href="https://github.com/theduardomaciel/officia"
 									target="_blank"
 								>
-									<Image
+									{/* <Image
 										src={'/icons/github.svg'}
 										className="cursor-pointer"
 										alt="Github icon"
 										width={20}
 										height={20}
-									/>
+									/> */}
+									<GithubIcon />
 								</a>
 								<a href="https://twitter.com/appofficia" target="_blank">
-									<Image
+									{/* <Image
 										src={'/icons/twitter.svg'}
 										className="cursor-pointer"
 										alt="Twitter icon"
 										width={20}
 										height={20}
-									/>
+									/> */}
+									<TwitterIcon />
 								</a>
 							</div>
 							<p className="flex-1 text-sm text-text-100 text-center md:text-left whitespace-normal break-words">
@@ -92,7 +94,7 @@ export default function Footer() {
 							]}
 						/>
 						<Section title="Baixe o App">
-							<PlayStoreEN />
+							<DownloadIcon />
 						</Section>
 					</div>
 				</div>
