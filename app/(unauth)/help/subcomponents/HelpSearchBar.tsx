@@ -1,11 +1,11 @@
 'use client';
-import { useState } from 'react';
+
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { cn } from 'lib/utils';
 import { ChevronRight, Search } from 'lucide-react';
 
-//import { algoliasearch } from 'algoliasearch';
 import { liteClient } from 'algoliasearch/lite';
 import {
 	Highlight,
@@ -15,7 +15,7 @@ import {
 	Snippet,
 	useInstantSearch
 } from 'react-instantsearch-hooks-web';
-import Link from 'next/link';
+import { AlgoliaIcon } from 'components/Icons';
 
 // appId - apiKey
 const searchClient = liteClient(
@@ -34,23 +34,22 @@ const transformItems = (items: Array<any>) => {
 	}));
 };
 
+/* Waiting react-instantsearch-hooks-server Next.js 13 implementation,
+ * so we can use the same component for both client and server side rendering
+ */
+
+const inputClass =
+	'z-10 flex w-full flex-row items-center rounded-md border border-gray-400 dark:border-dark-gray-100 bg-gray-200 dark:bg-dark-gray-200 py-4 pl-16 pr-6 text-sm font-normal text-[var(--neutral)] placeholder:text-text-200 dark:placeholder:text-text-100 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--neutral)] appearance-none';
+
 export default function HelpSearchBar({ placeholder, className }: HelpSearchBarProps) {
-	const [search, setSearch] = useState('');
-
-	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setSearch(e.target.value);
-	};
-
 	return (
-		<InstantSearch searchClient={searchClient} indexName="officia_help">
-			<div className="flex flex-col items-center justify-center w-full relative">
+		<div className={'flex flex-col items-center justify-center w-full relative'}>
+			<input type="text" disabled className={cn(inputClass, className)} />
+			<InstantSearch searchClient={searchClient} indexName="officia_help">
 				<SearchBox
 					classNames={{
-						root: cn('z-10 w-full relative', className),
-						input: cn(
-							'z-10 flex w-full flex-row items-center rounded-md border border-gray-400 dark:border-dark-gray-100 bg-gray-200 dark:bg-dark-gray-200 py-4 pl-16 pr-6 text-sm font-normal text-[var(--neutral)] placeholder:text-text-200 dark:placeholder:text-text-100 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--neutral)] appearance-none',
-							className
-						),
+						root: 'z-10 w-full absolute top-0 left-0',
+						input: cn(inputClass, className),
 						submit: 'cursor-default absolute left-6 top-1/2 z-20 -translate-y-1/2',
 						submitIcon: 'w-4 h-4',
 						reset: 'hidden',
@@ -68,29 +67,23 @@ export default function HelpSearchBar({ placeholder, className }: HelpSearchBarP
 					<EmptyQueryBoundary fallback={null}>
 						<Hits
 							classNames={{
-								root: 'absolute top-16 left-0 flex flex-col z-10 gap-y-2 w-full bg-gray-200 dark:bg-dark-gray-200 rounded-md p-4'
+								root: 'absolute top-16 left-0 flex flex-col z-10 gap-y-2 w-full bg-gray-200 dark:bg-dark-gray-200 rounded-md p-4 shadow-lg'
 							}}
 							hitComponent={Hit}
 							transformItems={transformItems}
 						/>
 					</EmptyQueryBoundary>
 				</NoResultsBoundary>
-			</div>
-		</InstantSearch>
+			</InstantSearch>
+		</div>
 	);
 }
 
 function Hit({ hit }: any) {
 	return hit.watermark ? (
-		<div className="flex flex-row w-full items-end justify-end gap-x-2 pt-2">
+		<div className="flex flex-row w-full items-center justify-end gap-x-2 pt-2">
 			<p className="text-text-200 text-xs pointer-events-none select-none">Search by</p>
-			<Image
-				src="/icons/algolia.svg"
-				className="select-none pointer-events-none"
-				alt="Algolia"
-				width={60}
-				height={12}
-			/>
+			<AlgoliaIcon />
 		</div>
 	) : (
 		<Link

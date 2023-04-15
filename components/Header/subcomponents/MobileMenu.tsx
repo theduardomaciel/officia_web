@@ -8,6 +8,7 @@ import ThemePicker from 'components/Footer/subcomponents/ThemePicker';
 import LanguagePicker from 'components/Footer/subcomponents/LanguagePicker';
 import FeedbackButton from 'components/Footer/subcomponents/FeedbackButton';
 import Status from 'components/Footer/subcomponents/Status';
+import { Item } from '..';
 
 const CENTER = 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2';
 
@@ -45,19 +46,9 @@ export default function MobileMenu() {
 				}}
 			>
 				<ul className="flex flex-col items-center justify-end gap-y-10">
-					{/* <li key={'services_mobile'} className="font-semibold text-xl cursor-pointer">
-						Serviços
-					</li>
-					<li key={'prices_mobile'} className="font-semibold text-xl cursor-pointer">
-						Preços
-					</li> */}
-					<li key={'faq_mobile'} className="font-semibold text-xl cursor-pointer">
-						FAQ
-					</li>
-					{/* <button className="flex items-center justify-center px-5 py-2 bg-primary rounded-3xl text-dark-gray-300 font-semibold text-base gap-x-3">
-						Entrar
-						<RightArrow />
-					</button> */}
+					<Item as="a" href="/help" key={'mobileHelpCenter'}>
+						Central de Ajuda
+					</Item>
 				</ul>
 				<div className="flex flex-col items-center justify-center w-full gap-y-6 lg:hidden">
 					<Status />

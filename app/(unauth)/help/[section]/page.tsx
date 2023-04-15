@@ -28,7 +28,7 @@ export default async function HelpSection({ params }: { params: { section: strin
 				<PageHeader>
 					<div className="flex flex-col items-center justify-center gap-y-8 px-wrapper">
 						<Logo width={75} height={60} className="z-10" />
-						<h1 className="z-10 w-full text-center font-title text-4xl text-var(--neutral) lg:w-fit lg:text-5xl">
+						<h1 className="z-10 w-full text-center font-title text-4xl text-[var(--neutral)] lg:w-fit lg:text-5xl">
 							{sectionTitle}
 						</h1>
 						<HelpSearchBar

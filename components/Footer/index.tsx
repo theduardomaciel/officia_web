@@ -1,15 +1,17 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import { cookies } from 'next/headers';
 
 import { DownloadIcon, GithubIcon, TwitterIcon } from 'components/Icons';
 
 // Components
-import ThemePicker from './subcomponents/ThemePicker';
+import ThemePicker, { Theme } from './subcomponents/ThemePicker';
 import LanguagePicker from './subcomponents/LanguagePicker';
 import Status from './subcomponents/Status';
 import FeedbackButton from './subcomponents/FeedbackButton';
 
 export default function Footer() {
+	const cookieStore = cookies();
+	const theme = cookieStore.get('theme');
+
 	return (
 		<footer className="w-full flex flex-col items-center justify-center gap-y-10 gap-x-12 px-wrapper border-t border-t-gray-400 dark:border-t-dark-gray-100 bg-gray-300 dark:bg-dark-gray-400 pt-12 pb-12">
 			<div className="flex flex-col items-start justify-start w-full gap-12">
@@ -27,23 +29,9 @@ export default function Footer() {
 									href="https://github.com/theduardomaciel/officia"
 									target="_blank"
 								>
-									{/* <Image
-										src={'/icons/github.svg'}
-										className="cursor-pointer"
-										alt="Github icon"
-										width={20}
-										height={20}
-									/> */}
 									<GithubIcon />
 								</a>
 								<a href="https://twitter.com/appofficia" target="_blank">
-									{/* <Image
-										src={'/icons/twitter.svg'}
-										className="cursor-pointer"
-										alt="Twitter icon"
-										width={20}
-										height={20}
-									/> */}
 									<TwitterIcon />
 								</a>
 							</div>
@@ -53,7 +41,7 @@ export default function Footer() {
 						</div>
 						{/* PC buttons holder */}
 						<div className="flex-row items-center justify-start gap-x-6 hidden lg:flex">
-							<ThemePicker />
+							<ThemePicker initialTheme={theme?.value as Theme} />
 							<LanguagePicker />
 						</div>
 					</div>

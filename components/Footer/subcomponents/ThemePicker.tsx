@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
@@ -18,8 +18,9 @@ import {
 
 import { Sun, Moon } from 'lucide-react';
 import { ThemeIcon } from 'components/Icons';
+import { setCookie } from 'lib/cookies';
 
-type Theme = 'system' | 'light' | 'dark';
+export type Theme = 'system' | 'light' | 'dark';
 
 const ICONS = {
 	system: <ThemeIcon width={14} height={14} />,
@@ -27,17 +28,37 @@ const ICONS = {
 	dark: <Moon width={14} height={14} color="var(--text-100)" />
 };
 
-export default function ThemePicker() {
+interface Props {
+	initialTheme?: Theme;
+}
+
+// No futuro, quando houver dicionários de tradução, utilizar o método de SelectValue comentado
+
+export default function ThemePicker({ initialTheme = 'system' }: Props) {
+	const [currentTheme, setCurrentTheme] = useState<Theme>(initialTheme);
 	const { theme, setTheme } = useTheme();
+
+	//console.log(currentTheme, ' - tema atual');
+	//console.log(initialTheme, ' - tema inicial pelo servidor');
+
+	useEffect(() => {
+		if (theme) {
+			setCookie('theme', theme);
+			setCurrentTheme(theme as Theme);
+		}
+	}, [theme]);
 
 	return (
 		<Select
-			defaultValue={'system'}
-			value={theme}
+			defaultValue={currentTheme}
+			value={currentTheme}
 			onValueChange={(value) => setTheme(value as Theme)}
 		>
-			<SelectTrigger className="shadow-sm" icon={ICONS[theme as Theme]}>
-				<SelectValue placeholder="Theme" />
+			<SelectTrigger className="shadow-sm" icon={ICONS[currentTheme as Theme]}>
+				{/* <SelectValue aria-label={currentTheme}>
+					{currentTheme === 'system' ? 'Auto' : currentTheme}
+				</SelectValue> */}
+				<SelectValue placeholder={initialTheme} />
 			</SelectTrigger>
 			<SelectContent>
 				<SelectScrollUp />

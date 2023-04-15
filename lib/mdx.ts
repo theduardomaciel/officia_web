@@ -3,8 +3,6 @@ import path from 'path';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { JSXElementConstructor, ReactElement } from 'react';
 
-import { serialize } from 'next-mdx-remote/serialize';
-
 import { ArticleAbstract } from 'components/mdx-elements/ArticleAbstract';
 import { Heading } from 'components/mdx-elements/Heading';
 import { Subheading } from 'components/mdx-elements/Subheading';
@@ -87,36 +85,3 @@ export const getAllArticlesMeta = async () => {
 
 	return articlesMeta;
 };
-
-/* SERIALIZED ================================================== */
-
-/* export const getSerializedArticleBySlug = async (section: string, slug: string) => {
-	const realSlug = slug.replace(/\.mdx$/, '');
-	const filePath = path.join(rootDirectory, section, `${realSlug}.mdx`);
-
-	const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
-
-	const { frontmatter, compiledSource } = await serialize(fileContent, {
-		parseFrontmatter: true
-	});
-
-	const article = {
-		meta: { ...frontmatter, slug: realSlug } as ArticleMeta,
-		compiledSource
-	};
-
-	return article;
-};
-
-export const getSectionSerializedArticles = async (section: string) => {
-	const files = fs.readdirSync(path.join(rootDirectory, section));
-
-	let articles: any[] = [];
-
-	for (const file of files) {
-		const article = await getSerializedArticleBySlug(section, file);
-		articles.push(article);
-	}
-
-	return articles;
-}; */

@@ -20,7 +20,7 @@ export default function ArticlesLayout({ children }: { children: React.ReactNode
 							Ainda ficou com dúvida em algum assunto?
 						</p>
 					</div>
-					<NavigationAnchor href="/help" className="w-full px-6 lg:w-fit">
+					<NavigationAnchor href="/contact" className="w-full px-6 lg:w-fit">
 						Fale Conosco
 					</NavigationAnchor>
 				</div>

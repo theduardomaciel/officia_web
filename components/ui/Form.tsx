@@ -89,7 +89,7 @@ const FormSubmit = React.forwardRef<
 	<FormPrimitive.Submit ref={ref} asChild>
 		<button
 			className={cn(
-				'flex flex-row items-center justify-center w-full px-5 py-2.5 bg-text-100 dark:bg-slate-50 text-slate-50 dark:text-dark-gray-300 font-semibold text-sm rounded-[10px] transition-colors dark:enabled:hover:bg-slate-300 disabled:cursor-not-allowed',
+				'flex flex-row items-center justify-center w-full px-5 py-2.5 bg-text-100 dark:bg-slate-50 text-slate-50 dark:text-dark-gray-300 font-semibold text-sm rounded-[10px] transition-colors enabled:hover:bg-text-200 dark:enabled:hover:bg-slate-300 disabled:cursor-not-allowed',
 				className
 			)}
 			disabled={isLoading || disabled}
