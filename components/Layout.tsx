@@ -10,7 +10,7 @@ export function Container({ children, className }: ContainerProps) {
 	return (
 		<main
 			className={cn(
-				'flex flex-col justify-center items-start w-full lg:min-h-screen z-10 relative overflow-x-hidden',
+				'flex flex-col justify-center items-start w-screen lg:min-h-screen z-10 relative',
 				className
 			)}
 		>

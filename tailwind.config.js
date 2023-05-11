@@ -51,7 +51,8 @@ module.exports = {
 				link: 'calc(var(--header) + 1rem)'
 			},
 			borderRadius: {
-				default: 'var(--default-border)'
+				default: 'var(--default-border)',
+				'lg-2': '10px'
 			},
 			fontFamily: {
 				sans: ['var(--font-inter)'],

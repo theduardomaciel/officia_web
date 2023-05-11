@@ -16,8 +16,8 @@ export const metadata = {
 
 export default function NotFound() {
 	return (
-		<main className="flex flex-col lg:flex-row items-center justify-center lg:justify-between w-full min-h-screen lg:pl-48 pr-56 gap-x-36">
-			<div className="flex flex-col w-full lg:flex-[0.5] lg:h-full items-center justify-center">
+		<main className="flex flex-col lg:flex-row items-center justify-center lg:justify-between w-full min-h-screen lg:px-64 lg:gap-x-36 px-24">
+			<div className="flex flex-col w-full lg:flex-[0.35] lg:h-full items-center justify-center">
 				<Logo width={100} height={100} />
 			</div>
 			<div className="flex flex-col items-center justify-center lg:items-start lg:flex-[0.425] gap-y-12">

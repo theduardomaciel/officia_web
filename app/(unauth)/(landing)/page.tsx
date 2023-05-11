@@ -7,6 +7,17 @@ import Header, { Item } from 'components/Header';
 import MobileMenu from 'components/Header/subcomponents/MobileMenu';
 import { Container, Section } from 'components/Layout';
 
+// Sections
+import StatisticsSection from './sections/StatisticsSection';
+import Section1 from './sections/Section1';
+import Section2 from './sections/Section2';
+import Section3 from './sections/Section3';
+import PlansSection from './sections/PlansSection';
+
+// Objects
+import Screen1 from './objects/Screen1';
+import Screen2 from './objects/Screen2';
+
 export default function Home() {
 	return (
 		<>
@@ -35,27 +46,11 @@ export default function Home() {
 				</ul>
 				<MobileMenu />
 			</Header>
-			<Container className="min-h-screen pt-header">
-				<div className="flex w-full lg:h-screen flex-col-reverse lg:flex-row items-center justify-between mt-24 lg:-mt-[2rem] gap-x-24 relative px-wrapper overflow-x-hidden">
+			<Container className="min-h-screen pt-header w-screen overflow-hidden">
+				<div className="flex w-full lg:h-screen flex-col-reverse lg:flex-row items-center justify-between mt-24 lg:-mt-[2rem] gap-x-24 relative px-wrapper">
 					<div className="flex relative h-[507.5px] w-full lg:w-fit lg:flex-1 my-24 lg:my-0">
-						<Image
-							src={`/images/screenshot_1.png`}
-							className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-text-100 rounded-[18.75px] shadow-2xl"
-							width={234.38}
-							height={507.5}
-							priority
-							quality={100}
-							alt="Mobile app screenshot 1"
-						/>
-						<Image
-							src={`/images/screenshot_2.png`}
-							className="absolute top-[46%] left-[40%] -translate-x-1/2 -translate-y-1/2 -z-10 border-2 border-text-100 rounded-[18.75px] shadow-2xl"
-							width={234.38}
-							height={507.5}
-							priority
-							quality={100}
-							alt="Mobile app screenshot 2"
-						/>
+						<Screen1 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl" />
+						<Screen2 className="top-[46%] left-[40%] -translate-x-1/2 -z-10 -translate-y-1/2 shadow-2xl" />
 					</div>
 
 					<div className="flex flex-1 flex-col items-center justify-center gap-y-20">
@@ -74,36 +69,23 @@ export default function Home() {
 
 					<p
 						className="font-black text-[10rem] lg:text-[15rem] tracking-[0.125em] text-secondary dark:text-primary opacity-10 leading-none
-                absolute top-[30%] lg:top-[20%] -left-[15%] lg:-left-[5%] -z-20"
+                absolute top-[30%] lg:top-[20%] -left-[15%] lg:-left-[5%] -z-20 select-none"
 					>
 						AUTO <br />
 						NOMIA
 					</p>
 				</div>
 
-				{/* <section>
-                <h2>
-                    ACOMPANHE SEU NEGÓCIO EM UM SÓ LUGAR.{' '}
-                    <span>PROFISSIONALISMO</span> E <span>AUTONOMIA</span>{' '}
-                    ANDARÃO DE MÃOS DADAS.
-                </h2>
-                <ul></ul>
-            </section> */}
+				<StatisticsSection />
+
+				<Section1 />
+
+				<Section2 />
+
+				<Section3 />
+
+				<PlansSection />
 			</Container>
 		</>
-	);
-}
-
-interface CardProps {
-	description: string;
-	data: string;
-}
-
-function Card({ data, description }: CardProps) {
-	return (
-		<li>
-			<p>{data}</p>
-			<p>{description}</p>
-		</li>
 	);
 }

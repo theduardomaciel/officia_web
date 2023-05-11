@@ -16,8 +16,10 @@ export default function Status({ className }: StatusProps) {
 			)}
 			title="Verifique o status de nossos serviços no Twitter"
 		>
-			<div className="w-2 h-2 bg-yellow rounded-full" />
-			<p>Serviço em Manutenção</p>
+			{/* <div className="w-2 h-2 bg-yellow rounded-full" />
+			<p>Serviço em Manutenção</p> */}
+			<div className="w-2 h-2 bg-red rounded-full" />
+			<p>Serviço Indisponível</p>
 			<ExternalLink width={12} height={12} color={'var(--text-100)'} />
 		</a>
 	);

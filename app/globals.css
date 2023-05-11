@@ -54,6 +54,8 @@ html {
 body {
 	color: var(--text-100);
 	background: linear-gradient(to bottom, rgb(var(--gray-500)), rgb(var(--gray-600)));
+	width: 100vw;
+	overflow-x: hidden;
 }
 
 a {
@@ -79,4 +81,8 @@ input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
 	display: none;
+}
+
+buttton:active {
+	transform: scale(0.96);
 }

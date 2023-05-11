@@ -63,9 +63,9 @@ export default function MobileMenu() {
 				<Logo
 					width={20}
 					height={20}
-					className={clsx('rotate-90 transition-all absolute', CENTER, {
-						'opacity-0 scale-0 rotate-90': isMenuOpen,
-						'opacity-100 scale-100 rotate-90': !isMenuOpen
+					className={clsx('-rotate-0 transition-all absolute', CENTER, {
+						'opacity-0 scale-0 -rotate-0': isMenuOpen,
+						'opacity-100 scale-100 -rotate-0': !isMenuOpen
 					})}
 				/>
 				<X
