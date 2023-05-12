@@ -14,7 +14,7 @@ export default function Header({ children, interactivityProps }: Props) {
 		<header
 			id="header"
 			className="w-screen h-[var(--header)] flex items-center justify-between px-wrapper fixed top-0 z-40 transition-colors 
-            before:absolute before:w-screen before:h-[var(--header)] before:top-0 before:left-0 before:bg-transparent dark:before:bg-dark-gray-500 before:-z-10 before:brightness-50 before:transition before:border border-b-gray-400 dark:before:border-b-dark-gray-100 before:opacity-0 data-[scroll]:backdrop-blur-lg data-[scroll]:before:opacity-50"
+            before:absolute before:w-screen before:h-[var(--header)] before:top-0 before:left-0 before:bg-transparent dark:before:bg-dark-gray-500 before:-z-10 before:brightness-50 before:transition before:border-b border-b-gray-400 dark:before:border-b-dark-gray-100 before:opacity-0 data-[scroll]:backdrop-blur-lg data-[scroll]:before:opacity-50"
 		>
 			<a href="/" className="font-title text-2xl z-50 text-[var(--neutral)]">
 				officia

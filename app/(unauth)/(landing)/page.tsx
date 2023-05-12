@@ -46,8 +46,8 @@ export default function Home() {
 				</ul>
 				<MobileMenu />
 			</Header>
-			<Container className="min-h-screen pt-header w-screen overflow-hidden">
-				<div className="flex w-full lg:h-screen flex-col-reverse lg:flex-row items-center justify-between mt-24 lg:-mt-[2rem] gap-x-24 relative px-wrapper">
+			<Container className="min-h-screen pt-header w-screen">
+				<div className="flex w-full lg:h-screen flex-col-reverse lg:flex-row items-center justify-between mt-24 lg:-mt-[2rem] gap-x-24 relative px-wrapper overflow-hidden">
 					<div className="flex relative h-[507.5px] w-full lg:w-fit lg:flex-1 my-24 lg:my-0">
 						<Screen1 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl" />
 						<Screen2 className="top-[46%] left-[40%] -translate-x-1/2 -z-10 -translate-y-1/2 shadow-2xl" />
