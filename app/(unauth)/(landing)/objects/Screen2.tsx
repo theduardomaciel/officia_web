@@ -1,9 +1,13 @@
+import Image from 'next/image';
+import { cn } from 'lib/utils';
+
+import { ElectricIcon, HydraulicIcon } from './components/Icons';
+
+// Components
 import Filter from './components/Filter';
 import Menu from './components/Menu';
 import IphoneBottom from './components/IphoneBottom';
-import { cn } from 'lib/utils';
 import IphoneTop from './components/IphoneTop';
-import { ElectricIcon, HydraulicIcon } from './components/Icons';
 
 export default function Screen2({ className }: { className?: string }) {
 	return (
@@ -16,9 +20,11 @@ export default function Screen2({ className }: { className?: string }) {
 			<IphoneTop />
 			<div className="self-stretch h-[28.13rem] overflow-hidden shrink-0 flex flex-col py-[0rem] px-[0.98rem] box-border items-center justify-start gap-[0.98rem] z-[1]">
 				<div className="rounded-t-[18.75px] rounded-b-none w-[12.7rem] flex flex-row items-center justify-between">
-					<img
+					<Image
 						className="relative w-[1.25rem] h-[1.25rem] object-cover"
-						alt=""
+						alt="Profile placeholder picture"
+						width={12.5}
+						height={12.5}
 						src="/landing/profile.png"
 					/>
 					<b className="relative">Visão geral</b>
@@ -177,11 +183,6 @@ function ServiceItem({ price }: ServiceItemProps) {
 						</span>
 					</div>
 				</div>
-				<img
-					className="relative w-[0.63rem] h-[0.63rem]"
-					alt=""
-					src="/keyboard-arrow-down.svg"
-				/>
 			</div>
 			<div className="self-stretch rounded-[3.13px] bg-gray-300 dark:bg-dark-gray-200 flex flex-row py-[0.2rem] px-[0.39rem] items-start justify-start gap-[0.39rem]">
 				<div className="flex-1 flex flex-col items-start justify-start gap-[0.2rem]">

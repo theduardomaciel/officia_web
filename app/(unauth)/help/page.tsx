@@ -10,12 +10,9 @@ import NavigationAnchor from 'components/NavigationAnchor';
 import FaqQuestions from './subcomponents/FAQ';
 import HelpSearchBar from 'app/(unauth)/help/subcomponents/HelpSearchBar';
 
-import { PreconnectSearchbox } from './subcomponents/preconnect-searchbox';
-
 export default function HelpCenter() {
 	return (
 		<>
-			<PreconnectSearchbox />
 			<Header>
 				<HeaderTitle title="Central de Ajuda" />
 				<NavigationAnchor href="/contact">Fale Conosco</NavigationAnchor>

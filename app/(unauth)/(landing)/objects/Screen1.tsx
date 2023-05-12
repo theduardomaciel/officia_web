@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { cn } from 'lib/utils';
 
 import { ElectricIcon, HydraulicIcon } from './components/Icons';
@@ -20,9 +21,11 @@ export default function Screen1({ className }: { className?: string }) {
 			<div className="self-stretch h-[28.13rem] overflow-hidden shrink-0 flex flex-col py-[0rem] px-[0.98rem] box-border items-center justify-start gap-[0.98rem] z-[1]">
 				<div className="rounded-t-[18.75px] rounded-b-none w-[12.7rem] flex flex-row items-center justify-start gap-[0.59rem]">
 					<div className="flex-1 flex flex-row items-center justify-start relative gap-[0.59rem]">
-						<img
+						<Image
 							className="relative w-[1.25rem] h-[1.25rem] object-cover z-[0]"
-							alt=""
+							alt="Profile placeholder picture"
+							width={12.5}
+							height={12.5}
 							src="/landing/profile.png"
 						/>
 						<div className="flex-1 relative z-[1]">
@@ -48,7 +51,7 @@ export default function Screen1({ className }: { className?: string }) {
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 						>
-							<g clip-path="url(#clip0_1970_4192)">
+							<g clipPath="url(#clip0_1970_4192)">
 								<path
 									d="M8.40156 4.15156L6.25 6.29844L4.09844 4.15156L3.4375 4.8125L6.25 7.625L9.0625 4.8125L8.40156 4.15156Z"
 									fill="var(--text-100)"
