@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 		const response = await axios.post(
 			process.env.DISCORD_SUPPORT_WEBHOOK_URL as string,
 			{
-				content: `**Ticket #${randomTicket}**\n\n**Email**\n\`${email}\`\n\n**Subject**\n\`${subject}\`\n\n**Message**\n\`\`\`${message}\`\`\`\n**Question Type:** \`${questionType}\`\n**Problem Type:** \`${problemType}\``
+				content: `**Ticket #${randomTicket}**\n\n**- Email: **\`${email}\`\n\n**- Assunto (subject): **\`${subject}\`\n\n**- Recado (message): **\`\`\`${message}\`\`\`\n**- Tipo de Pergunta:** \`${questionType}\`\n**Tipo de Problema:** \`${problemType}\``
 			},
 			{
 				headers: {

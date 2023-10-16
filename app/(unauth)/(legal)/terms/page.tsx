@@ -109,7 +109,7 @@ export default function TermsOfUse() {
 							Você pode utilizar os Serviços somente se concordar em celebrar um
 							contrato vinculante com o officia e não for uma pessoa impedida de
 							receber serviços sob as leis da jurisdição aplicável. Em qualquer
-							hipótese, você deve ter no mínimo 18 anos de idade, para utilizar os
+							hipótese, você deve ter no mínimo 16 anos de idade, para utilizar os
 							Serviços. Se estiver aceitando estes Termos e utilizando os Serviços em
 							nome de uma empresa, organização, governo ou outra entidade legal, você
 							declara e garante que está autorizado a realizar tal ação e que tem

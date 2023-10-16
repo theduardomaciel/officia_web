@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 		const response = await axios.post(
 			process.env.DISCORD_FEEDBACK_WEBHOOK_URL as string,
 			{
-				content: `**Ticket #${randomTicket}**\n\n**Email**\n\`${email}\`\n\n**Message**\n\`\`\`${message}\`\`\``
+				content: `**Ticket #${randomTicket}**\n\n**- Email: **\`${email}\`\n\n**- Feedback: **\`\`\`${message}\`\`\``
 			},
 			{
 				headers: {

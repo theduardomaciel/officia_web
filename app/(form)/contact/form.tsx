@@ -7,6 +7,7 @@ import {
 	Form,
 	FormControl,
 	FormField,
+	FormFieldHeader,
 	FormInput,
 	FormLabel,
 	FormMessage,
@@ -96,15 +97,12 @@ export default function ContactForm() {
 				required
 			/>
 			<FormField className="grid mb-[10px]" name="email">
-				<div className="flex items-baseline justify-between">
-					<FormLabel className="text-[15px] font-medium leading-[35px] text-[var(--neutral)]">
-						Seu endereço de e-mail
-					</FormLabel>
+				<FormFieldHeader label="Seu endereço de e-mail">
 					<FormMessage match="valueMissing">Por favor, insira seu e-mail</FormMessage>
 					<FormMessage match="typeMismatch">
 						Por favor, forneça um e-mail válido
 					</FormMessage>
-				</div>
+				</FormFieldHeader>
 				<FormControl asChild>
 					<FormInput type="email" placeholder="Seu e-mail" required />
 				</FormControl>
@@ -130,14 +128,11 @@ export default function ContactForm() {
 				</FormControl>
 			</FormField>
 			<FormField className="grid mb-[10px]" name="message">
-				<div className="flex items-baseline justify-between">
-					<FormLabel className="text-[15px] font-medium leading-[35px] text-[var(--neutral)]">
-						Descrição
-					</FormLabel>
+				<FormFieldHeader label="Descrição">
 					<FormMessage match="valueMissing">
 						Por favor, descreva como podemos lhe ajudar
 					</FormMessage>
-				</div>
+				</FormFieldHeader>
 				<FormControl asChild>
 					<FormTextarea
 						placeholder="[descreva como podemos lhe ajudar aqui]"

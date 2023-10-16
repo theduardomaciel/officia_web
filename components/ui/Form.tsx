@@ -20,6 +20,31 @@ const FormField = React.forwardRef<
 ));
 FormField.displayName = FormPrimitive.Field.displayName;
 
+interface FormFieldHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+	icon?: React.ReactNode;
+	label: string;
+}
+
+const FormFieldHeader = React.forwardRef<HTMLDivElement, FormFieldHeaderProps>(
+	({ className, icon, label, children }, ref) => (
+		<div
+			className={cn(
+				'flex flex-col lg:flex-row items-start justify-between mb-2 gap-x-4',
+				className
+			)}
+		>
+			<div className="flex flex-row items-center justify-start gap-x-2">
+				{icon && icon}
+				<FormLabel className="text-[15px] font-medium text-[var(--neutral)]">
+					{label}
+				</FormLabel>
+			</div>
+			{children}
+		</div>
+	)
+);
+FormFieldHeader.displayName = 'FormFieldHeader';
+
 const FormLabel = React.forwardRef<
 	React.ElementRef<typeof FormPrimitive.Label>,
 	React.ComponentPropsWithoutRef<typeof FormPrimitive.Label>
@@ -70,7 +95,7 @@ const FormMessage = React.forwardRef<
 >(({ children, className, ...props }, ref) => (
 	<FormPrimitive.Message
 		ref={ref}
-		className={cn('text-sm text-red opacity-90', className)}
+		className={cn('text-sm text-red opacity-90 text-right', className)}
 		{...props}
 	>
 		{children}
@@ -104,6 +129,7 @@ FormSubmit.displayName = FormPrimitive.Submit.displayName;
 export {
 	Form,
 	FormField,
+	FormFieldHeader,
 	FormLabel,
 	FormControl,
 	FormInput,
