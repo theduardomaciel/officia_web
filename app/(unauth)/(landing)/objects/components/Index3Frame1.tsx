@@ -2,7 +2,7 @@ import { HydraulicIcon } from './Icons';
 
 export default function Index3Frame1() {
 	return (
-		<div className="absolute -top-24 right-0 rounded-3xl bg-gray-300 dark:bg-dark-gray-400 shadow-[-2px_4px_50px_10px_rgba(161,_161,_170,_0.25)] dark:shadow-[-2px_4px_50px_10px_rgba(0,0,0,_0.25)] w-[23.44rem] overflow-y-auto flex flex-col p-[1.56rem] box-border items-center justify-start gap-[1.56rem] text-left text-[0.88rem] text-text-100 font-inter">
+		<div className="absolute -top-24 right-0 rounded-3xl bg-gray-300 dark:bg-dark-gray-400 shadow-[-2px_4px_50px_10px_rgba(161,_161,_170,_0.25)] dark:shadow-[-2px_4px_50px_10px_rgba(0,0,0,_0.25)] w-[23.44rem] overflow-y-auto flex flex-col p-[1.56rem] box-border items-center justify-start gap-[1.56rem] text-left text-[0.88rem] text-text-100 font-inter overflow-x-hidden">
 			<div className="relative leading-[125%] font-semibold inline-block w-[20.31rem]">
 				Serviços
 			</div>

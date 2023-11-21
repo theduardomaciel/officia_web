@@ -1,5 +1,7 @@
 import { cookies } from 'next/headers';
+import { Suspense } from 'react';
 
+// Assets
 import { DownloadIcon, GithubIcon, TwitterIcon } from 'components/Icons';
 
 // Components
@@ -95,7 +97,9 @@ export default function Footer() {
 				</div>
 				<div className="w-full flex items-center justify-center lg:justify-between">
 					<FeedbackButton className="w-fit lg:flex hidden" />
-					<Status />
+					<Suspense fallback={<></>}>
+						<Status />
+					</Suspense>
 				</div>
 			</div>
 		</footer>

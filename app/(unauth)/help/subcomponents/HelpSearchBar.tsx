@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { cn } from 'lib/utils';
 import { ChevronRight, Search } from 'lucide-react';
 
-import { liteClient } from 'algoliasearch/lite';
+import liteClient from 'algoliasearch/lite';
 import {
 	Highlight,
 	Hits,
@@ -14,7 +14,7 @@ import {
 	SearchBox,
 	Snippet,
 	useInstantSearch
-} from 'react-instantsearch-hooks-web';
+} from 'react-instantsearch';
 import { AlgoliaIcon } from 'components/Icons';
 
 // appId - apiKey
@@ -34,9 +34,7 @@ const transformItems = (items: Array<any>) => {
 	}));
 };
 
-/* Waiting react-instantsearch-hooks-server Next.js 13 implementation,
- * so we can use the same component for both client and server side rendering
- */
+/* Waiting react-instantsearch-hooks-server Next.js 13 implementation, so we can use the same component for both client and server side rendering */
 
 const inputClass =
 	'z-10 flex w-full flex-row items-center rounded-md border border-gray-400 dark:border-dark-gray-100 bg-gray-200 dark:bg-dark-gray-200 py-4 pl-16 pr-6 text-sm font-normal text-[var(--neutral)] placeholder:text-text-200 dark:placeholder:text-text-100 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--neutral)] appearance-none';

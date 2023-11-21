@@ -8,7 +8,7 @@ import PlansPicker from './PlansPicker';
 
 export default function PlansSection() {
 	return (
-		<Section className="p-0 gap-y-16">
+		<Section className="p-0 gap-y-16 relative">
 			<Heading title="CONFIRA E COMPARE">
 				Queremos que o <span className="font-title">officia</span> seja acessível a todos:
 				de pequenos a grandes empreendedores. <br />

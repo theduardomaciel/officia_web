@@ -2,17 +2,20 @@
 import { useRef, useState } from 'react';
 import clsx from 'clsx';
 
-import { Logo, RightArrow } from 'components/Icons';
+import { Logo } from 'components/Icons';
 import { X } from 'lucide-react';
+
+// Components
 import ThemePicker from 'components/Footer/subcomponents/ThemePicker';
 import LanguagePicker from 'components/Footer/subcomponents/LanguagePicker';
 import FeedbackButton from 'components/Footer/subcomponents/FeedbackButton';
 import Status from 'components/Footer/subcomponents/Status';
+
 import { Item } from '..';
 
 const CENTER = 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2';
 
-export default function MobileMenu() {
+export default function MobileMenu({ children }: { children?: React.ReactNode }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const debounce = useRef(false);
@@ -51,7 +54,7 @@ export default function MobileMenu() {
 					</Item>
 				</ul>
 				<div className="flex flex-col items-center justify-center w-full gap-y-6 lg:hidden">
-					<Status />
+					{children}
 					<div className="flex flex-row items-center justify-between w-full">
 						<ThemePicker />
 						<LanguagePicker />

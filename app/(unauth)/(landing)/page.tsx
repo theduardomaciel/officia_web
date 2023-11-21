@@ -5,7 +5,8 @@ import { Logo, DownloadIcon } from 'components/Icons';
 // Components
 import Header, { Item } from 'components/Header';
 import MobileMenu from 'components/Header/subcomponents/MobileMenu';
-import { Container, Section } from 'components/Layout';
+import Status from 'components/Footer/subcomponents/Status';
+import { Container } from 'components/Layout';
 
 // Sections
 import StatisticsSection from './sections/StatisticsSection';
@@ -44,7 +45,9 @@ export default function Home() {
 					</Item>
 					{/* <NavigationAnchor>Entrar</NavigationAnchor> */}
 				</ul>
-				<MobileMenu />
+				<MobileMenu>
+					<Status />
+				</MobileMenu>
 			</Header>
 			<Container className="min-h-screen pt-header w-screen">
 				<div className="flex w-full lg:h-screen flex-col-reverse lg:flex-row items-center justify-between mt-24 lg:-mt-[2rem] gap-x-24 relative px-wrapper overflow-hidden">

@@ -3,11 +3,11 @@ import { cn } from 'lib/utils';
 // Components
 import { MainHeading } from 'components/Heading';
 import { Section } from 'components/Layout';
+
 import Index3Frame1 from '../objects/components/Index3Frame1';
 import Index3Frame2 from '../objects/components/Index3Frame2';
 import Index3Payment from '../objects/components/Index3Payment';
 import Index3Warranty from '../objects/components/Index3Warranty';
-import TermsOfUse from 'app/(unauth)/(legal)/terms/page';
 
 export default function Section3() {
 	return (

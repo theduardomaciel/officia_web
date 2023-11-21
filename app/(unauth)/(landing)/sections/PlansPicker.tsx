@@ -10,7 +10,7 @@ export default function PlansPicker() {
 	return (
 		<>
 			<button
-				className="flex flex-row items-center justify-center w-full lg:w-fit self-center bg-gray-300 dark:bg-dark-gray-500 border border-gray-400 dark:border-dark-gray-200 rounded-2xl py-4 z-10 relative cursor-pointer"
+				className="flex flex-row items-center justify-center w-full lg:w-fit self-center bg-gray-300 dark:bg-dark-gray-500 border border-gray-400 dark:border-dark-gray-200 rounded-2xl py-4 z-10 cursor-pointer sticky top-[calc(var(--header)+1rem)] left-0 shadow-2xl"
 				onClick={() =>
 					setCurrentPlan((prev) => (prev === 'monthly' ? 'yearly' : 'monthly'))
 				}
