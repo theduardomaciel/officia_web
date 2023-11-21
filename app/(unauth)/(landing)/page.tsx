@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 import { Logo, DownloadIcon } from 'components/Icons';
 
@@ -46,7 +47,9 @@ export default function Home() {
 					{/* <NavigationAnchor>Entrar</NavigationAnchor> */}
 				</ul>
 				<MobileMenu>
-					<Status />
+					<Suspense fallback={<></>}>
+						<Status />
+					</Suspense>
 				</MobileMenu>
 			</Header>
 			<Container className="min-h-screen pt-header w-screen">

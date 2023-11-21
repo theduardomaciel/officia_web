@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { algoliasearch } from 'algoliasearch';
+import algoliasearch from 'algoliasearch';
 
 /* Para des-logar: colocar 'http://logout:logout@' antes da URL */
 
@@ -9,6 +9,7 @@ export async function GET(request: Request) {
 		process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID as string,
 		process.env.ALGOLIA_ADMIN_KEY as string
 	);
+	const index = algoliaClient.initIndex('officia_help');
 
 	const articles = await getAllSerializedArticles();
 
@@ -19,17 +20,12 @@ export async function GET(request: Request) {
 		};
 	});
 
-	// sending the data to Algolia
-	const { taskID } = await algoliaClient.batch({
-		indexName: 'officia_help',
-		batchWriteParams: {
-			requests
-		}
-	});
+	// Sending the data to Algolia
+	const { taskID } = await index.batch(requests);
 
 	// Wait for indexing to be finished
 	try {
-		await algoliaClient.waitForTask({ indexName: 'officia_help', taskID });
+		await index.waitTask(taskID);
 
 		return NextResponse.json({
 			success: `✅ Content successfully synchronized with Algolia search!`
