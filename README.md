@@ -6,6 +6,7 @@
 
 
 ## 💻 Project
+The homepage website to an app that lets you create and manage automated flows to simplify repetitive tasks and increase productivity.
 
 #### 🧭 Landing page available for Web. Mobile (iOS and Android) app yet to be released.
 
