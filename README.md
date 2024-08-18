@@ -6,7 +6,13 @@
 
 
 ## 💻 Project
-A platform for automating social events that seeks to help create good moments in an easy and practical way. Good memories last forever. 
+
+#### 🧭 Landing page available for Web. Mobile (iOS and Android) app yet to be released.
+
+> [!NOTE]
+> The frontend design, mockup and prototype of the project [is available in Figma](https://www.figma.com/design/oouRCiS0qlC3PS0UaRxXZC/officia?node-id=2338-8625&t=0YMqzfzhDGpA4dKT-1).
+
+<br />
 
 ## ✨ Technologies
 
@@ -14,10 +20,21 @@ A platform for automating social events that seeks to help create good moments i
 - [ ] TailwindCSS
 - [ ] React 18
 - [ ] Next.js
-- [ ] Radix
+- [ ] Algolia Search
+
+> [!WARNING]
+> The project is still under development, so several aspects will be unfinished and/or non-functional as the application becomes more robust.
+
+<br />
+
+## 🧠 Principles
+
+1. Provide help articles to users about all services and features of the mobile application
+2. Have a functional search for frequently asked topics
+3. Be fast and fully responsive, as users from a wide range of devices will be accessing the content.
+
+<br />
 
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-<br />
